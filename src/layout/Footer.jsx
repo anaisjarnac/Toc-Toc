@@ -14,12 +14,17 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         color: "white",
-        backgroundColor: "#4E96AF",
+        backgroundColor: "#F6C179",
         marginRight: 200,
         height: '3em',
         marginTop: "20px",
     },
-
+    title: {
+        color: "white",
+        fontFamily:  "'Comfortaa', cursive",
+        marginLeft: "20%",
+        
+    }
 }));
 
 function Footer() {

@@ -13,6 +13,9 @@ const useStyles = makeStyles({
     maxWidth: 300,
     height: 400,
     backgroundColor: "#C6DADA",
+    marginLeft: "200px",
+    borderRadius: "20%",
+    marginTop: "-100px",
   },
   media: {
     height: 200,
@@ -20,10 +23,7 @@ const useStyles = makeStyles({
   inscris: {
     backgroundColor: "white",
     color: "#8CB0BC",
-  },
-  ensavoirplus: {
-    backgroundColor: "white",
-    color: "#8CB0BC",
+    fontFamily: "'Comfortaa', cursive",
   },
   cardUser: {
     display:"flex",
@@ -32,10 +32,17 @@ const useStyles = makeStyles({
 
   cardContent: {
     textAlign: "center",
+    marginTop:"10px",
+    fontFamily: "'Comfortaa', cursive",
   },
+
   cardactions: {
     display:"flex",
     justifyContent: "center",
+  },
+  cardspeak: {
+    fontFamily: "'Montserrat', sans-serif",
+
   }
 });
 
@@ -48,24 +55,21 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/assets/img/prop.jpeg"
+          image="/assets/img/Charly.jpg"
           title=""
         />
         <CardContent>
           <Typography className={classes.cardContent} gutterBottom variant="h5" component="h2">
-            Propriétaire
+            PROPRIETAIRE
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography className={classes.cardspeak} variant="body2" color="textSecondary" component="p">
             Tu veux louer ton bien en toute confiance?
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.cardactions}>
-        <Button className={classes.inscris} size="small" color="primary">
+        <Button className={classes.inscris} size="large" color="default">
           Inscris toi
-        </Button>
-        <Button className={classes.ensavoirplus} size="small" color="primary">
-          En savoir plus
         </Button>
       </CardActions>
     </Card>

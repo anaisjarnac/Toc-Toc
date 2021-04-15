@@ -13,14 +13,21 @@ const useStyles = makeStyles((theme) => ({
 
     button: {
         color: "white",
-        backgroundColor: "#4E96AF",
+        backgroundColor: "#F6C179",
         marginRight: 200,
         height: '3em',
         marginTop: "20px",
+        fontFamily:  "'Comfortaa', cursive",
+
     },
-    
+
     title: {
         color: "#4E96AF",
+        fontFamily:  "'Fredoka One', cursive",
+        marginRight:"800px",
+        marginTop:"30px",
+        fontSize:"50px",
+        
     },
  
     toctoclogo: {
@@ -34,9 +41,9 @@ function Header() {
     return (
         <div className={classes.root}>
       
-         <img src="/assets/img/logo.png" alt='logo' className={classes.toctoclogo} />
+         <img src="/assets/img/logoheader.png" alt='logo' className={classes.toctoclogo} />
             <h1 className= {classes.title}>Toc Toc</h1>
-         <Button className={classes.button} variant="contained" color="secondary">
+         <Button className={classes.button} variant="contained" color="primary">
           Connexion
         </Button>
         </div>

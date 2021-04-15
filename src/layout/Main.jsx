@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme) => ({
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition : "center",
- 
     }
 }
 )
