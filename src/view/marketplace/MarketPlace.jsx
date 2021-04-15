@@ -1,6 +1,6 @@
 import React from "react";
 import CheckBox from "./components/CheckBox";
-import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+//import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import Slider1 from "./components/Slider1";
 import Slider2 from "./components/Slider2";
 import Textfield from "./components/Textfield";
@@ -45,9 +45,9 @@ function MarketPlace(props) {
     <div className={classes.root}>
       <div className={classes.box1}>
         <p>Filtres</p>
-        <IconButton size="medium">
+        {/*<IconButton size="medium">
           <HighlightOffIcon />
-        </IconButton>
+          </IconButton>*/}
       </div>
       <div className={classes.box2}>
         <p>Type</p>
