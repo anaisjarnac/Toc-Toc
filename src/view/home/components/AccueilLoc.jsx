@@ -55,15 +55,15 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/assets/img/Charly.jpg"
+          image="/assets/img/loc.jpeg"
           title=""
         />
         <CardContent>
           <Typography className={classes.cardContent} gutterBottom variant="h5" component="h2">
-            PROPRIETAIRE
+            LOCATAIRE
           </Typography>
           <Typography className={classes.cardspeak} variant="body2" color="textSecondary" component="p">
-            Tu veux louer ton bien en toute confiance?
+            Tu veux trouver l'appartement de tes rêves?
           </Typography>
         </CardContent>
       </CardActionArea>
