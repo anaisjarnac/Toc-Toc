@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import {Link} from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,15 +41,16 @@ function Header() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-      
-         <img src="/assets/img/logoheader.png" alt='logo' className={classes.toctoclogo} />
+            <Link to="/"> 
+                <img src="/assets/img/logoheader.png" alt='logo' className={classes.toctoclogo}/>
+            </Link>
             <h1 className= {classes.title}>Toc Toc</h1>
          <Button className={classes.button} variant="contained" color="primary">
-          Connexion
+             <Link to="/connexion">
+                Connexion
+            </Link>
         </Button>
         </div>
-    
-        
     );
 };
 

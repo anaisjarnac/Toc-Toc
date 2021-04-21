@@ -1,22 +1,38 @@
 import React from "react";
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
 import Main from "./layout/Main";
 import Home from "./view/home/Home";
 import MarketPlace from "./view/marketplace/MarketPlace";
 import Connexion from "./common/components/Connexion";
+import Inscription from "./view/inscription/Inscription";
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <Main>
-        <Header />
-        <Home />
-        {/*<Connexion />
-         <MarketPlace />*/}
-        <Footer />
-      </Main>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" render={() => (
+          <Main>
+              <Home />
+          </Main>
+        )} />
+          <Route exact path="/marketplace" render={() => (
+          <Main>
+              <MarketPlace />
+          </Main>
+        )} />
+        <Route exact path="/connexion" render={() => (
+          <Main>
+              <Connexion />
+          </Main>
+        )} />
+        <Route exact path="/inscription" render={() => (
+          <Main>
+              <Inscription />
+          </Main>
+        )} />
+      </Switch>
+    </Router>
   );
 }
 

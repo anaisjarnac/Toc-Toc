@@ -1,5 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
+import Header from "./Header";
+import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,7 +19,9 @@ function Main(props) {
     const {children}= props;
     return (
         <div className={classes.root}>
-            {children}
+            <Header />
+                {children}
+            <Footer />
         </div>
     );
 }
