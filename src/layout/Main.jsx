@@ -4,15 +4,15 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        backgroundImage : "url('/assets/img/background.png')",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition : "center",
-    }
-}
-)
-)
+  root: {
+    width: "100%",
+    height: "100%",
+    backgroundImage: "url('/assets/img/background.png')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  },
+}));
 
 function Main(props) {
     const classes= useStyles();

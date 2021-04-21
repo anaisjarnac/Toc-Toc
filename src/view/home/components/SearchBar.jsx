@@ -4,31 +4,40 @@ import {Link} from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
-
-    root: {
-        '& > *': {
-          margin: theme.spacing(1),
-          width: '50ch',
-          backgroundColor: "white",
-          border: '0'
-        },
+  root: {
+    "& > *": {
+      margin: theme.spacing(1),
+      width: "80ch",
+      backgroundColor: "white",
+      borderRadius: "50px",
+      border: "none",
+      fontFamily: "'Comfortaa', cursive",
+      "&:hover": {
+        border: "none",
       },
+    },
+  },
 
   container: {
     display: "flex",
-    margin: 'auto',
+    margin: "auto",
     padding: 20,
-    borderRadius: '50px',
-    backgroundColor: "#FADDB6",
-    width: '70%',
-},
+    borderRadius: "50px",
+    backgroundColor: "#F6C179",
+    width: "60%",
+  },
 
-  button:{
-      marginLeft: 50,
-      backgroundColor: "white",
-
-
-  }
+  button: {
+    marginLeft: 15,
+    backgroundColor: "white",
+    borderRadius: "50px",
+    height: "40px",
+    marginTop: "15px",
+    fontFamily: "'Comfortaa', cursive",
+    "&:hover": {
+      background: "white",
+    },
+  },
 }));
 
 function SearchBar(props) {
@@ -39,7 +48,7 @@ function SearchBar(props) {
       <form className={classes.root} noValidate autoComplete="off">
         <TextField
           id="outlined-basic"
-          label="Votre ville..."
+          label="Entrez votre ville, votre quartier, votre code postal..."
           variant="outlined"
         />
       </form>
