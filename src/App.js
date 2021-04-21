@@ -9,6 +9,9 @@ import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
+<<<<<<< HEAD
+    
+=======
     <Router>
       <Switch>
         <Route exact path="/" render={() => (
@@ -33,6 +36,7 @@ function App() {
         )} />
       </Switch>
     </Router>
+>>>>>>> origin/dev
   );
 }
 

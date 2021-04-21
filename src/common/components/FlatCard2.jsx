@@ -81,6 +81,7 @@ export default function FlatCard2(props) {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
+        <p>Référence:{props.reference}</p>
       </CardActions>
     </Card>
   );
