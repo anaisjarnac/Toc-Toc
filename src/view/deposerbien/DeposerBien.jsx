@@ -1,15 +1,16 @@
-import React from "react";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import React from 'react';
+import ImagesUpload from './components/ImagesUpload';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& > *": {
+    '& > *': {
       margin: theme.spacing(1),
     },
   },
@@ -21,14 +22,14 @@ const useStyles = makeStyles((theme) => ({
 function DeposerBien(props) {
   const classes = useStyles();
 
-  const [title, setTitle] = React.useState("");
-  const [type, setType] = React.useState("");
-  const [isFurnished, setIsFurnished] = React.useState("");
-  const [surface, setSurface] = React.useState("");
-  const [price, setPrice] = React.useState("");
-  const [description, setDescription] = React.useState("");
-  const [city, setCity] = React.useState("");
-  const [district, setDistrict] = React.useState("");
+  const [title, setTitle] = React.useState('');
+  const [type, setType] = React.useState('');
+  const [isFurnished, setIsFurnished] = React.useState('');
+  const [surface, setSurface] = React.useState('');
+  const [price, setPrice] = React.useState('');
+  const [description, setDescription] = React.useState('');
+  const [city, setCity] = React.useState('');
+  const [district, setDistrict] = React.useState('');
 
   const handleClickFinaleValidation = () => {
     const newFlat = {
@@ -115,7 +116,10 @@ function DeposerBien(props) {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <div></div>
+      <div>
+        <h2>Ajouter des photos</h2>
+        <ImagesUpload />
+      </div>
       <div>
         <h2>Où se situe votre bien?</h2>
         <form className={classes.root} noValidate autoComplete="off">
