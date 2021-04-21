@@ -5,18 +5,10 @@ import Main from "./layout/Main";
 import Home from "./view/home/Home";
 import MarketPlace from "./view/marketplace/MarketPlace";
 import Connexion from "./common/components/Connexion";
-
+import BurgerMenu from "./view/home/components/BurgerMenu";
 function App() {
   return (
-    <div className="App">
-      <Main>
-        <Header />
-        <Home />
-        {/*<Connexion />
-         <MarketPlace />*/}
-        <Footer />
-      </Main>
-    </div>
+
   );
 }
 
