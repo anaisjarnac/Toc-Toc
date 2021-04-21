@@ -5,18 +5,18 @@ import Slider from "@material-ui/core/Slider";
 
 const useStyles = makeStyles({
   root: {
-    width: 500,
+    width: "90%",
     margin: "auto",
   },
 });
 
 function valuetext(value) {
-  return `${value}°C`;
+  return `${value}`;
 }
 
-export default function RangeSlider() {
+export default function RangeSlider({ min, max, step }) {
   const classes = useStyles();
-  const [value, setValue] = React.useState([0, 6000]);
+  const [value, setValue] = React.useState([min, max]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -27,9 +27,9 @@ export default function RangeSlider() {
       <Typography id="range-slider" gutterBottom></Typography>
       <Slider
         value={value}
-        min={0}
-        max={4000}
-        step={100}
+        min={min}
+        max={max}
+        step={step}
         onChange={handleChange}
         valueLabelDisplay="auto"
         aria-labelledby="range-slider"
