@@ -19,15 +19,15 @@ function Home(props) {
   const classes = useStyles();
   return (
     <>
-      <div>
+      {/* <div>
         <Accroche />
-      </div>
+      </div> */}
       <div>
         <SearchBar />
-        <UserReviewList />
       </div>
 
       <div className={classes.carduser}>
+        <UserReviewList />
         <AccueilLoc />
         <AccueilProp />
       </div>

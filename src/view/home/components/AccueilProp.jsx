@@ -13,9 +13,11 @@ const useStyles = makeStyles({
     maxWidth: 300,
     height: 400,
     backgroundColor: "#C6DADA",
-    marginLeft: "200px",
+    marginLeft: "10px",
     borderRadius: "20%",
-    marginTop: "-100px",
+    marginTop: "-50px",
+
+    margin: "100px",
   },
   media: {
     height: 200,
