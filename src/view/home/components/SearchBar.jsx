@@ -1,5 +1,7 @@
 import React from "react";
 import { Button, makeStyles, TextField } from "@material-ui/core";
+import {Link} from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,7 +53,9 @@ function SearchBar(props) {
         />
       </form>
       <Button className={classes.button} variant="contained">
-        Recherchez
+        <Link to="/marketplace">
+          Recherchez
+        </Link>
       </Button>
     </div>
   );
