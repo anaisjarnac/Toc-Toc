@@ -8,15 +8,7 @@ import Connexion from "./common/components/Connexion";
 
 function App() {
   return (
-    <div className="App">
-      <Main>
-        <Header />
-        {/*<Home />
-        <Connexion />*/}
-        <MarketPlace />
-        <Footer />
-      </Main>
-    </div>
+    
   );
 }
 
