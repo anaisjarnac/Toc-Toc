@@ -8,15 +8,7 @@ import Connexion from "./common/components/Connexion";
 import BurgerMenu from "./view/home/components/BurgerMenu";
 function App() {
   return (
-    <div className="App">
-          <Main>
-        <Header />
-        <Home />
-        {/* <Connexion /> */}
-         {/* <MarketPlace /> */}
-        <Footer />
-      </Main>
-          </div>
+
   );
 }
 
