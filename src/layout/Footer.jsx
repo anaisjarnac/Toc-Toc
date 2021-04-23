@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   footerlist: {
     display: "flex",
     justifyContent: "space-between",
-    backgroundColor: "#4E96AF",
+    backgroundColor: "#FFF2D9",
     listStyle: "none",
   },
 
@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 50,
     height: "3em",
     marginTop: "20px",
+    fontFamily: "'Comfortaa', cursive",
   },
   title: {
     color: "white",

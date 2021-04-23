@@ -13,6 +13,7 @@ import AddBoxIcon from "@material-ui/icons/AddBox";
 import SearchIcon from "@material-ui/icons/Search";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   list: {
@@ -139,53 +140,65 @@ export default function BurgerMenu() {
         <div className={classes.menuburgerlist}>
           <ul className={classes.puces}>
             <li>
-              <button className={classes.accueil}>
+              <Button className={classes.accueil} to="/" component={Link}>
                 <ListItemIcon>
                   <HomeIcon />
                 </ListItemIcon>
                 HOME
-              </button>
+              </Button>
             </li>
             <li>
-              <button className={classes.nous}>
+              <Button className={classes.nous}>
                 <ListItemIcon>
                   <SentimentSatisfiedAltIcon />
                 </ListItemIcon>
                 QUI SOMMES NOUS?
-              </button>
+              </Button>
             </li>
             <li>
-              <button className={classes.market}>
+              <Button
+                className={classes.market}
+                to="/marketplace"
+                component={Link}
+              >
                 <ListItemIcon>
                   <SearchIcon />
                 </ListItemIcon>
                 MARKET-PLACE
-              </button>
+              </Button>
             </li>
             <Divider />
             <li>
-              <button className={classes.connexion}>
+              <Button
+                className={classes.connexion}
+                to="/connexion"
+                component={Link}
+              >
                 <ListItemIcon>
                   <LockOpenIcon />
                 </ListItemIcon>
                 CONNEXION
-              </button>
+              </Button>
             </li>
             <li>
-              <button className={classes.inscription}>
+              <Button
+                className={classes.inscription}
+                to="/inscription"
+                component={Link}
+              >
                 <ListItemIcon>
                   <AddBoxIcon />
                 </ListItemIcon>
                 INSCRIPTION
-              </button>
+              </Button>
             </li>
             <li>
-              <button className={classes.contact}>
+              <Button className={classes.contact}>
                 <ListItemIcon>
                   <ContactSupportIcon />
                 </ListItemIcon>
                 CONTACTEZ-NOUS
-              </button>
+              </Button>
             </li>
           </ul>
         </div>
