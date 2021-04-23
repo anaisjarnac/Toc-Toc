@@ -5,8 +5,7 @@ import Slider from "@material-ui/core/Slider";
 
 const useStyles = makeStyles({
   root: {
-    width: "90%",
-    margin: "auto",
+    width: "80%",
   },
 });
 
@@ -14,13 +13,8 @@ function valuetext(value) {
   return `${value}`;
 }
 
-export default function RangeSlider({ min, max, step }) {
+export default function RangeSlider({ min, max, step, onChange, value }) {
   const classes = useStyles();
-  const [value, setValue] = React.useState([min, max]);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   return (
     <div className={classes.root}>
@@ -30,7 +24,7 @@ export default function RangeSlider({ min, max, step }) {
         min={min}
         max={max}
         step={step}
-        onChange={handleChange}
+        onChange={onChange}
         valueLabelDisplay="auto"
         aria-labelledby="range-slider"
         getAriaValueText={valuetext}
