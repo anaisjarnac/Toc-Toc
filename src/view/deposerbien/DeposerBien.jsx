@@ -30,6 +30,7 @@ function DeposerBien(props) {
   const [description, setDescription] = React.useState('');
   const [city, setCity] = React.useState('');
   const [district, setDistrict] = React.useState('');
+  const [image, setImage] = React.useState('');
 
   const handleClickFinaleValidation = () => {
     const newFlat = {
@@ -41,9 +42,18 @@ function DeposerBien(props) {
       description: description,
       ville: city,
       quartier: district,
+      image: image,
+
     };
     console.log(newFlat);
   };
+
+  const handleUploadImage = (imageUrl) => {
+    setImage(imageUrl);
+    console.log(imageUrl);
+
+  };
+
 
   return (
     <div>
@@ -118,7 +128,7 @@ function DeposerBien(props) {
       </div>
       <div>
         <h2>Ajouter des photos</h2>
-        <ImagesUpload />
+        <ImagesUpload  onUpload={handleUploadImage}/>
       </div>
       <div>
         <h2>Où se situe votre bien?</h2>

@@ -25,28 +25,27 @@ const useStyles = makeStyles({
   },
   inscris: {
     backgroundColor: "white",
-    color: "#8CB0BC",
+    color: "black",
     fontFamily: "'Comfortaa', cursive",
   },
-  cardUser: {
-    display:"flex",
+  cardUser: {
+    display: "flex",
     justifyContent: "center",
   },
 
   cardContent: {
     textAlign: "center",
-    marginTop:"10px",
+    marginTop: "10px",
     fontFamily: "'Comfortaa', cursive",
   },
 
-  cardactions: {
-    display:"flex",
+  cardactions: {
+    display: "flex",
     justifyContent: "center",
   },
   cardspeak: {
     fontFamily: "'Montserrat', sans-serif",
-
-  }
+  },
 });
 
 export default function MediaCard() {
@@ -79,4 +78,3 @@ export default function MediaCard() {
     </div>
   );
 }
-

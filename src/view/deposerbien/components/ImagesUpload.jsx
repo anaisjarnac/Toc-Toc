@@ -1,7 +1,7 @@
 import React, { createRef, useState } from 'react';
 import axios from 'axios';
 
-function ImagesUpload() {
+function ImagesUpload( {onUpload}) {
   const publicKey = process.env.REACT_APP_PUBLIC_KEY;
   const authEndpoint = process.env.REACT_APP_AUTHENTICATION_ENDPOINT;
 
@@ -15,7 +15,7 @@ function ImagesUpload() {
 
   const handleUpload = async (e) => {
     const token = await axios.get(authEndpoint);
-    console.log(token);
+    //console.log(token);
 
     const formData = new FormData();
 
@@ -37,8 +37,10 @@ function ImagesUpload() {
       formData,
       config
     );
-
-    setImageUrl(response.data.url);
+      
+    setImageUrl(response.data.url)
+    onUpload(response.data.url);
+    
   };
 
   return (

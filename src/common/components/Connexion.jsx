@@ -29,14 +29,14 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    border: 'solid #C6DADA 2px',
-    borderRadius: '40px',
-    boxShadow: '5px 5px 5px #8CB0BC',
-    padding: '40px',
-    backgroundColor: '#C6DADA',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    border: "solid #C6DADA 2px",
+    borderRadius: "40px",
+    boxShadow: "5px 5px 5px #8CB0BC",
+    padding: "40px",
+    backgroundColor: "#C6DADA",
   },
   avatar: {
     margin: theme.spacing(1),
@@ -44,13 +44,16 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "#FADDB6",
     color: "black",
+  },
+  theback: {
+    backgroundColor: "white",
   },
 }));
 
@@ -91,12 +94,12 @@ export default function Connexion() {
             autoComplete="email"
             autoFocus
             InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AccountCircleIcon />
-                  </InputAdornment>
-                ),
-              }}
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircleIcon />
+                </InputAdornment>
+              ),
+            }}
           />
           <TextField
             onChange={(e) => setPassword(e.target.value)}
@@ -111,12 +114,12 @@ export default function Connexion() {
             id="password"
             autoComplete="current-password"
             InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <LockOpenOutlinedIcon />
-                  </InputAdornment>
-                ),
-              }}
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LockOpenOutlinedIcon />
+                </InputAdornment>
+              ),
+            }}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

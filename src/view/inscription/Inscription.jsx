@@ -31,33 +31,50 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    border: 'solid #C6DADA 2px',
-    borderRadius: '40px',
-    boxShadow: '5px 5px 5px #8CB0BC',
-    padding: '40px',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    border: "solid #C6DADA 2px",
+    borderRadius: "40px",
+    boxShadow: "5px 5px 5px #8CB0BC",
+    padding: "40px",
     backgroundColor: "#FADDB6",
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: '#C6DADA',
+    backgroundColor: "#C6DADA",
     color: "black",
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: '#C6DADA',
+    backgroundColor: "#C6DADA",
     color: "black",
+  },
+  theback: {
+    backgroundColor: "white",
   },
 }));
 
 export default function Inscription() {
   const classes = useStyles();
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const handleClick = () => {
+    const userInscription = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+    };
+    console.log(userInscription);
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -73,6 +90,8 @@ export default function Inscription() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
+                className={classes.theback}
+                value={firstName}
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
@@ -81,10 +100,13 @@ export default function Inscription() {
                 id="firstName"
                 label="Prénom"
                 autoFocus
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                className={classes.theback}
+                value={lastName}
                 variant="outlined"
                 required
                 fullWidth
@@ -92,10 +114,13 @@ export default function Inscription() {
                 label="Nom"
                 name="lastName"
                 autoComplete="lname"
+                onChange={(e) => setLastName(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                className={classes.theback}
+                value={email}
                 variant="outlined"
                 required
                 fullWidth
@@ -103,17 +128,20 @@ export default function Inscription() {
                 label="Adresse Email"
                 name="email"
                 autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
                 InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <AccountCircleIcon />
-                      </InputAdornment>
-                    ),
-                  }}
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircleIcon />
+                    </InputAdornment>
+                  ),
+                }}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                className={classes.theback}
+                value={password}
                 variant="outlined"
                 required
                 fullWidth
@@ -122,13 +150,14 @@ export default function Inscription() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
                 InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <LockOpenOutlinedIcon />
-                      </InputAdornment>
-                    ),
-                  }}
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LockOpenOutlinedIcon />
+                    </InputAdornment>
+                  ),
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -139,13 +168,13 @@ export default function Inscription() {
             </Grid>
           </Grid>
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
             to="/" 
             component={Link}
+            onClick={handleClick}
           >
             S'enregistrer
           </Button>
