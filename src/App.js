@@ -5,6 +5,7 @@ import Main from "./layout/Main";
 import Home from "./view/home/Home";
 import MarketPlace from "./view/marketplace/MarketPlace";
 import Connexion from "./common/components/Connexion";
+import DeposerBien from "./view/deposerbien/DeposerBien";
 
 function App() {
   return (
@@ -43,6 +44,15 @@ function App() {
           render={() => (
             <Main>
               <Inscription />
+            </Main>
+          )}
+        />
+        <Route
+          exact
+          path="/deposerbien"
+          render={() => (
+            <Main>
+              <DeposerBien />
             </Main>
           )}
         />
