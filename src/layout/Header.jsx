@@ -55,8 +55,8 @@ function Header() {
         />
       </Link>
       <h1 className={classes.title}>Toc Toc</h1>
-      <Button className={classes.button} variant="contained" color="primary">
-        <Link to="/connexion">Connexion</Link>
+      <Button className={classes.button} to="/connexion" component={Link} variant="contained" color="primary">
+            Connexion
       </Button>
       <BurgerMenu />
     </nav>

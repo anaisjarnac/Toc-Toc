@@ -1,28 +1,29 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import LockOpenOutlinedIcon from "@material-ui/icons/LockOpenOutlined";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import SelectOption from "./components/SelectOption";
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import {Link} from "react-router-dom";
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link to="/home">TocToc</Link> {new Date().getFullYear()}
-      {"."}
+    <Typography to="/" component={Link} variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+        TocToc
+      {' '}
+      {new Date().getFullYear()}
+      {'.'}
     </Typography>
   );
 }
@@ -87,7 +88,6 @@ export default function Inscription() {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <SelectOption />
             <Grid item xs={12} sm={6}>
               <TextField
                 className={classes.theback}
@@ -172,15 +172,19 @@ export default function Inscription() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            to="/" 
+            component={Link}
             onClick={handleClick}
           >
             S'enregistrer
           </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link to="/connexion">Déjà un compte? Se connecter ici.</Link>
+            <Grid container justify="flex-end">
+                <Grid item>
+                  <Typography  to="/connexion" component={Link} color='textPrimary' style={{textDecoration: 'none'}} variant="body2">
+                        Déjà un compte? Se connecter ici.
+                  </Typography>
+                </Grid>
             </Grid>
-          </Grid>
         </form>
       </div>
       <Box mt={4}>

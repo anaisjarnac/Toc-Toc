@@ -1,26 +1,27 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import LockOpenOutlinedIcon from "@material-ui/icons/LockOpenOutlined";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import React, {useState} from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import {Link} from "react-router-dom";
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link to="/home">TocToc</Link> {new Date().getFullYear()}
-      {"."}
+    <Typography align="center" variant="body2" to="/" component={Link} color="textSecondary" >
+      {'Copyright © '}
+        TocToc
+      {new Date().getFullYear()}
+      {'.'}
     </Typography>
   );
 }
@@ -58,6 +59,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Connexion() {
   const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+ 
+
+  const handleClick = () => {
+    const userId = {
+      email: email,
+      password: password
+    }
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -70,8 +81,9 @@ export default function Connexion() {
           Connexion
         </Typography>
         <form className={classes.form} noValidate>
-          <TextField
-            className={classes.theback}
+          <TextField 
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
             variant="outlined"
             margin="normal"
             required
@@ -90,7 +102,8 @@ export default function Connexion() {
             }}
           />
           <TextField
-            className={classes.theback}
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
             variant="outlined"
             margin="normal"
             required
@@ -118,17 +131,22 @@ export default function Connexion() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleClick}
+            to="/" 
+            component={Link}
           >
             C'est parti
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Typography to="/" component={Link} variant="body2" color='textPrimary' style={{textDecoration: 'none'}}>
                 Mot de passe oublié?
-              </Link>
+              </Typography>
             </Grid>
             <Grid item>
-              <Link to="/inscription">Pas encore de compte?</Link>
+              <Typography to="/inscription" component={Link} color='textPrimary' style={{textDecoration: 'none'}} variant='body2'>
+                Pas encore de compte?
+                </Typography>
             </Grid>
           </Grid>
         </form>
