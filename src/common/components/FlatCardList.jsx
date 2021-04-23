@@ -25,7 +25,7 @@ const cards = [
   },
   {
     avatarImage: "/assets/Nicolas.JPG",
-    titre: "Studio 29m2 avec coin nuit",
+    titre: "Studio 29m2 coin nuit",
     lieu: "Victoire",
     image: "/assets/img/flat-img/studio.jpg",
     prix: "570€",
