@@ -1,7 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import {Link} from "react-router-dom";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 import BurgerMenu from "../view/home/components/BurgerMenu";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     color: "#4E96AF",
-    fontFamily: "'Fredoka One', cursive",
+    fontFamily: "'Comfortaa', cursive",
     fontSize: "40px",
   },
 
@@ -47,18 +47,16 @@ function Header() {
   const classes = useStyles();
   return (
     <nav className={classes.sticky}>
-         <Link to="/"> 
-            <img
-                src="/assets/img/logoheader.png"
-                alt="logo"
-                className={classes.toctoclogo}
-            />
-        </Link>
+      <Link to="/">
+        <img
+          src="/assets/img/logoheader.png"
+          alt="logo"
+          className={classes.toctoclogo}
+        />
+      </Link>
       <h1 className={classes.title}>Toc Toc</h1>
       <Button className={classes.button} variant="contained" color="primary">
-        <Link to="/connexion">
-            Connexion
-        </Link>
+        <Link to="/connexion">Connexion</Link>
       </Button>
       <BurgerMenu />
     </nav>
