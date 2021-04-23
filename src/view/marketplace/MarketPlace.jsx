@@ -63,7 +63,7 @@ function MarketPlace(props) {
 
   return (
     <div className={classes.root}>
-      <Container maxWidth="xl">
+      <Container maxWidth="sm">
         <div className={classes.filtre}>
           <Grid container>
             <Grid item xs={12} md={12} lg={4}>
@@ -140,7 +140,7 @@ function MarketPlace(props) {
           </Grid>
         </div>
       </Container>
-      <Container>
+      <Container maxWidth="sm">
         <div>
           <FlatCardList />
         </div>

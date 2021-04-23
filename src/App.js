@@ -2,11 +2,9 @@ import React from "react";
 import Inscription from "./view/inscription/Inscription";
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Main from "./layout/Main";
-import Footer from "./layout/Footer";
 import Home from "./view/home/Home";
 import MarketPlace from "./view/marketplace/MarketPlace";
 import Connexion from "./common/components/Connexion";
-import DeposerBien from "./view/deposerbien/DeposerBien";
 
 function App() {
   return (

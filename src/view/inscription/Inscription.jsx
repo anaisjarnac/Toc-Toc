@@ -15,15 +15,13 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import SelectOption from './components/SelectOption';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography to="/" component={Link} variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link to="/home">
         TocToc
-      </Link>{' '}
+      {' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -73,7 +71,6 @@ export default function Inscription() {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <SelectOption />
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
@@ -147,14 +144,16 @@ export default function Inscription() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            to="/" 
+            component={Link}
           >
             S'enregistrer
           </Button>
             <Grid container justify="flex-end">
                 <Grid item>
-                    <Link to="/connexion">
+                  <Typography  to="/connexion" component={Link} color='textPrimary' style={{textDecoration: 'none'}} variant="body2">
                         Déjà un compte? Se connecter ici.
-                    </Link>
+                  </Typography>
                 </Grid>
             </Grid>
         </form>

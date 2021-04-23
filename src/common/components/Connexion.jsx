@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -17,11 +17,9 @@ import Container from '@material-ui/core/Container';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography align="center" variant="body2" to="/" component={Link} color="textSecondary" >
       {'Copyright © '}
-      <Link to="/home">
         TocToc
-      </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -58,6 +56,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Connexion() {
   const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+ 
+
+  const handleClick = () => {
+    const userId = {
+      email: email,
+      password: password
+    }
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -71,6 +79,8 @@ export default function Connexion() {
         </Typography>
         <form className={classes.form} noValidate>
           <TextField 
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
             variant="outlined"
             margin="normal"
             required
@@ -89,6 +99,8 @@ export default function Connexion() {
               }}
           />
           <TextField
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
             variant="outlined"
             margin="normal"
             required
@@ -116,19 +128,22 @@ export default function Connexion() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleClick}
+            to="/" 
+            component={Link}
           >
             C'est parti
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Typography to="/" component={Link} variant="body2" color='textPrimary' style={{textDecoration: 'none'}}>
                 Mot de passe oublié?
-              </Link>
+              </Typography>
             </Grid>
             <Grid item>
-              <Link to="/inscription">
+              <Typography to="/inscription" component={Link} color='textPrimary' style={{textDecoration: 'none'}} variant='body2'>
                 Pas encore de compte?
-              </Link>
+                </Typography>
             </Grid>
           </Grid>
         </form>
