@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import ImagesUpload from './components/ImagesUpload';
+import ImagesUpload from './components/ImagesUpload';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -34,17 +34,14 @@ function AddFlat(props) {
     description: '',
   });
 
-  // const handleUploadImage = (imageUrl) => {
-    
-  //   const newImages = [form.images, imageUrl];
-  //   setForm({...form, images: newImages});
-  //   console.log(newImages);
-  // };
+  const handleUploadImage = (imageUrl) => {
+    const newImages = [...form.images, imageUrl];
+    setForm({...form, images: newImages});
+    console.log(newImages);
+  };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    // console.log(e.target.value);
-    // console.log({ ...form, [e.target.name]: e.target.value});
   };
 
   const postForm = () => {
@@ -142,12 +139,12 @@ function AddFlat(props) {
           onChange={handleChange}
         />
       </div>
-      {/* <div>
+      <div>
         <h2>Ajouter des photos</h2>
         <div>
           <ImagesUpload onUpload={handleUploadImage} images={form.images} form={form}/>
         </div>
-      </div> */}
+      </div>
       <div>
         <h2>Où se situe votre bien?</h2>
         <form className={classes.root} noValidate autoComplete="off">
