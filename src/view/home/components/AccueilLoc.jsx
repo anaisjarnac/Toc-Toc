@@ -1,27 +1,26 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import {Link} from "react-router-dom";
-
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 300,
-    height: 400,
+    maxWidth: 350,
+    height: 450,
     backgroundColor: "#C6DADA",
     marginLeft: "150px",
     borderRadius: "20%",
-    marginTop: "-50px",
+    marginTop: "10px",
     margin: "100px",
   },
   media: {
-    height: 200,
+    height: 250,
   },
   inscris: {
     backgroundColor: "white",
@@ -53,28 +52,44 @@ export default function MediaCard() {
 
   return (
     <div className={classes.cardUser}>
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/assets/img/loc.jpeg"
-          title=""
-        />
-        <CardContent>
-          <Typography className={classes.cardContent} gutterBottom variant="h5" component="h2">
-            LOCATAIRE
-          </Typography>
-          <Typography className={classes.cardspeak} variant="body2" color="textSecondary" component="p">
-            Tu veux trouver l'appartement de tes rêves?
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions className={classes.cardactions}>
-        <Button className={classes.inscris} size="large" color="default" to="/inscription" component={Link}>
-          Inscris toi
-        </Button>
-      </CardActions>
-    </Card>
+      <Card className={classes.root}>
+        <CardActionArea>
+          <CardMedia
+            className={classes.media}
+            image="/assets/img/loc.jpeg"
+            title=""
+          />
+          <CardContent>
+            <Typography
+              className={classes.cardContent}
+              gutterBottom
+              variant="h5"
+              component="h2"
+            >
+              LOCATAIRE
+            </Typography>
+            <Typography
+              className={classes.cardspeak}
+              variant="body2"
+              color="textSecondary"
+              component="p"
+            >
+              Tu veux trouver l'appartement de tes rêves?
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions className={classes.cardactions}>
+          <Button
+            className={classes.inscris}
+            size="large"
+            color="default"
+            to="/inscription"
+            component={Link}
+          >
+            Inscris toi
+          </Button>
+        </CardActions>
+      </Card>
     </div>
   );
 }
