@@ -148,7 +148,7 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button 
+              <Button
                 className={classes.nous}
                 to="/deposerbien"
                 component={Link}
@@ -197,7 +197,11 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button className={classes.contact}>
+              <Button
+                className={classes.contact}
+                to="/contact"
+                component={Link}
+              >
                 <ListItemIcon>
                   <ContactSupportIcon />
                 </ListItemIcon>
