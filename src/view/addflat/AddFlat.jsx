@@ -6,7 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core';
-import axios from 'axios';
+//import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,26 +47,27 @@ function AddFlat(props) {
 //     headers: { "Authorization": `Bearer ${token}` }
 // };
 
-  // const postForm = () => {
-  //   axios.post("https://toctoc-api.herokuapp.com/flat", form, config)
-  //   .then(res => {
-  //     console.log(res);
-  //   })
-  // }
+//   const postForm = () => {
+//     axios.post("https://toctoc-api.herokuapp.com/flat", form, config)
+//     .then(res => {
+//       console.log(res);
+//     })
+//   }
 
-  const postForm = () => {
-    axios.post("https://toctoc-api.herokuapp.com/flat", form, {
-      headers: {
-        'Authorization': `Bearer ${token}` }
-      })
-    .then(res => {
-      console.log(res);
-    })
-  }
+
+//   const postForm = () => {
+//     axios.post("https://toctoc-api.herokuapp.com/flat", form, {
+//       headers: {
+//         'Authorization': `Bearer ${token}` }
+//       })
+//     .then(res => {
+//       console.log(res);
+//     })
+//   }
 
   const handleClick = () => {
     console.log(form);
-    postForm();
+    //postForm();
   };
 
   return (
