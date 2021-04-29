@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, makeStyles, TextField, Typography } from "@material-ui/core";
-import {Link} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     padding: 20,
     borderRadius: "50px",
-    backgroundColor: "#F6C179",
+    backgroundColor: "#FFF2D9",
     width: "70%",
   },
 
@@ -52,8 +51,13 @@ function SearchBar(props) {
           variant="outlined"
         />
       </form>
-      <Button className={classes.button} variant="contained" to="/marketplace" component={Link}>
-         Recherchez
+      <Button
+        className={classes.button}
+        variant="contained"
+        to="/marketplace"
+        component={Link}
+      >
+        Recherchez
       </Button>
     </div>
   );

@@ -149,7 +149,7 @@ export default function Connexion() {
             color="primary"
             className={classes.submit}
             onClick={handleClick}
-            to="/"
+            to="/profil"
             component={Link}
           >
             C'est parti

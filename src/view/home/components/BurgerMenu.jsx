@@ -148,11 +148,15 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button className={classes.nous}>
+              <Button
+                className={classes.nous}
+                to="/flat"
+                component={Link}
+              >
                 <ListItemIcon>
                   <SentimentSatisfiedAltIcon />
                 </ListItemIcon>
-                QUI SOMMES NOUS?
+                DEPOSER UN BIEN
               </Button>
             </li>
             <li>
@@ -193,7 +197,11 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button className={classes.contact}>
+              <Button
+                className={classes.contact}
+                to="/contact"
+                component={Link}
+              >
                 <ListItemIcon>
                   <ContactSupportIcon />
                 </ListItemIcon>

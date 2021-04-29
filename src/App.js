@@ -7,24 +7,27 @@ import MarketPlace from "./view/marketplace/MarketPlace";
 import Connexion from "./common/components/Connexion";
 import UserContext from "./context/user";
 import axios from "axios";
-
+import AddFlat from "./view/addflat/AddFlat";
+import Contact from "./view/Contact";
+import Profil from "./view/profil/components/Profil";
 
 function App() {
   const [connectedUser, setConnectedUser] = useState({});
 
-  useEffect (() => {
+  useEffect(() => {
     const connectUser = async () => {
       const accessToken = localStorage.getItem("userToken");
       if (accessToken) {
         const config = {
           headers: {
-            Authorization: `Bearer ${accessToken}`
-          }
+            Authorization: `Bearer ${accessToken}`,
+          },
         };
 
         const userProfile = await axios.get(
-          'http://toctoc-api.herokuapp.com/users/profile', config
-          );
+          "http://toctoc-api.herokuapp.com/users/profile",
+          config
+        );
 
         setConnectedUser(userProfile.data);
       }
@@ -34,8 +37,7 @@ function App() {
   }, []);
 
   return (
-    <UserContext.Provider
-      value={{connectedUser, setConnectedUser}}>
+    <UserContext.Provider value={{ connectedUser, setConnectedUser }}>
       <Router>
         <Switch>
           <Route
@@ -74,9 +76,36 @@ function App() {
               </Main>
             )}
           />
+          <Route
+            exact
+            path="/flat"
+            render={() => (
+              <Main>
+                <AddFlat />
+              </Main>
+            )}
+          />
+          <Route
+            exact
+            path="/contact"
+            render={() => (
+              <Main>
+                <Contact />
+              </Main>
+            )}
+          />
+          <Route
+            exact
+            path="/profil"
+            render={() => (
+              <Main>
+                <Profil />
+              </Main>
+            )}
+          />
         </Switch>
       </Router>
-    </UserContext.Provider>  
+    </UserContext.Provider>
   );
 }
 

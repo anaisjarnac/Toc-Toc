@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Comfortaa', cursive",
   },
   title: {
-    color: "white",
+    color: "black",
     fontFamily: "'Fredoka One', cursive",
   },
 }));
