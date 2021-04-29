@@ -14,6 +14,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -68,11 +69,22 @@ export default function Connexion() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const userId = {
       email: email,
       password: password,
     };
+    try {
+    const token = await axios.post(
+      "http://toctoc-api.herokuapp.com/users/login",
+      userId
+    );
+
+    console.log(token.data);
+    localStorage.setItem("userToken", token.data.access_token);
+    } catch (e) {
+      // ici afficher un message d'erreur à l'utilisateur
+    }
   };
 
   return (

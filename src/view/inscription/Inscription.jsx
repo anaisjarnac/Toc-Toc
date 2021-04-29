@@ -15,6 +15,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import axios from 'axios';
 
 function Copyright() {
   return (
@@ -66,14 +67,14 @@ export default function Inscription() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const userInscription = {
       firstName: firstName,
       lastName: lastName,
       email: email,
-      password: password,
+      plainPassword: password,
     };
-    console.log(userInscription);
+    const user = await axios.post('http://toctoc-api.herokuapp.com/users', userInscription);
   };
 
   return (
