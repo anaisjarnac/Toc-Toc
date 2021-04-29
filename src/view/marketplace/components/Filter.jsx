@@ -50,12 +50,14 @@ function MarketPlace(props) {
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
+
   //State et handleChange concernant le slider prix
   const [price, setPrice] = React.useState([0, 4000]);
 
   const handleChangeSlider = (event, newValue) => {
     setPrice(newValue);
   };
+  
   //State et handleChange concernant le slider surface
   const [surface, setSurface] = React.useState([0, 300]);
 
