@@ -5,7 +5,7 @@ import Main from "./layout/Main";
 import Home from "./view/home/Home";
 import MarketPlace from "./view/marketplace/MarketPlace";
 import Connexion from "./common/components/Connexion";
-import DeposerBien from "./view/deposerbien/DeposerBien";
+import AddFlat from "./view/addflat/AddFlat";
 
 function App() {
   return (
@@ -49,10 +49,10 @@ function App() {
         />
         <Route
           exact
-          path="/deposerbien"
+          path="/flat"
           render={() => (
             <Main>
-              <DeposerBien />
+              <AddFlat />
             </Main>
           )}
         />

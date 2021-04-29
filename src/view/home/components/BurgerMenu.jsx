@@ -150,7 +150,7 @@ export default function BurgerMenu() {
             <li>
               <Button 
                 className={classes.nous}
-                to="/deposerbien"
+                to="/flat"
                 component={Link}
               >
                 <ListItemIcon>

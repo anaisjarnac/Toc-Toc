@@ -1,11 +1,9 @@
-import React, { createRef, useState } from 'react';
+import React, { createRef } from 'react';
 import axios from 'axios';
 
-function ImagesUpload( {onUpload}) {
+function ImagesUpload({ onUpload, images }) {
   const publicKey = process.env.REACT_APP_PUBLIC_KEY;
   const authEndpoint = process.env.REACT_APP_AUTHENTICATION_ENDPOINT;
-
-  const [imageUrl, setImageUrl] = useState('');
 
   const uploadRef = createRef();
 
@@ -37,23 +35,25 @@ function ImagesUpload( {onUpload}) {
       formData,
       config
     );
-      
-    setImageUrl(response.data.url)
+
     onUpload(response.data.url);
-    
   };
 
   return (
     <div>
-      <button onClick={triggerUpload}>Mon Button</button>{' '}
-      {/* custom element to change ! */}
-      <input
-        style={{ display: 'none' }}
-        ref={uploadRef}
-        type="file"
-        onChange={handleUpload}
-      />
-      {imageUrl && <img src={imageUrl} alt="" />}
+      <div>
+        <button onClick={triggerUpload}>Mon Button</button>{' '}
+        {/* custom element to change ! */}
+        <input
+          style={{ display: 'none' }}
+          ref={uploadRef}
+          type="file"
+          onChange={handleUpload}
+        />
+      </div>
+      {images.map((image, index) => {
+        return <img src={image} alt="" key={index} />;
+      })}
     </div>
   );
 }
