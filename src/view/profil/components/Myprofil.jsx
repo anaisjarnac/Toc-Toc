@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
+import UserContext from "../../../context/user";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -27,11 +28,15 @@ const useStyles = makeStyles((theme) => ({
 
 function Myprofil(props) {
   const classes = useStyles();
+  const { connectedUser } = useContext(UserContext);
+
+      
   return (
     <div className={classes.container}>
       <div className={classes.name}>
-        <h1>Ginette Dupond</h1>
-        <p>gigi@gmail.com</p>
+        <h1>{connectedUser.firstName}</h1>
+        <h2>{connectedUser.lastName}</h2>
+        <p>{connectedUser.email}</p>
       </div>
       <div>
         <Avatar
@@ -39,10 +44,6 @@ function Myprofil(props) {
           alt="Ginette"
           src="/assets/img/avatar.jpeg"
         />
-      </div>
-      <div className={classes.name}>
-        <h2>0765432109</h2>
-        <p>2 rue du cucu, Bordeaux</p>
       </div>
     </div>
   );
