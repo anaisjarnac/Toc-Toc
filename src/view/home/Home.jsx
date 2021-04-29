@@ -19,9 +19,9 @@ function Home(props) {
   const classes = useStyles();
   return (
     <>
-      {/* <div>
+      <div>
         <Accroche />
-      </div> */}
+      </div>
       <div>
         <SearchBar />
       </div>
