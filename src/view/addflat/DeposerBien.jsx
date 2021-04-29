@@ -30,7 +30,7 @@ function DeposerBien(props) {
   const [description, setDescription] = React.useState('');
   const [city, setCity] = React.useState('');
   const [district, setDistrict] = React.useState('');
-  const [image, setImage] = React.useState('');
+  const [image, setImage] = React.useState([]);
 
   const handleClickFinaleValidation = () => {
     const newFlat = {
@@ -43,17 +43,16 @@ function DeposerBien(props) {
       ville: city,
       quartier: district,
       image: image,
-
     };
     console.log(newFlat);
   };
 
   const handleUploadImage = (imageUrl) => {
-    setImage(imageUrl);
-    console.log(imageUrl);
 
+    //setImage(imageUrl);
+    //image.push(imageUrl);
+    setImage(images => [...images, imageUrl]);
   };
-
 
   return (
     <div>
@@ -72,11 +71,11 @@ function DeposerBien(props) {
         <h2>Quel type de bien souhaitez-vous louer?</h2>
         <RadioGroup value={type} onChange={(e) => setType(e.target.value)}>
           <FormControlLabel
-            value="Appartement"
+            value="flat"
             control={<Radio />}
             label="Appartement"
           />
-          <FormControlLabel value="Maison" control={<Radio />} label="Maison" />
+          <FormControlLabel value="house" control={<Radio />} label="Maison" />
         </RadioGroup>
       </div>
       <div>
@@ -128,7 +127,9 @@ function DeposerBien(props) {
       </div>
       <div>
         <h2>Ajouter des photos</h2>
-        <ImagesUpload  onUpload={handleUploadImage}/>
+        <div>
+        <ImagesUpload  onUpload={handleUploadImage} images={image}/>
+        </div>
       </div>
       <div>
         <h2>Où se situe votre bien?</h2>
