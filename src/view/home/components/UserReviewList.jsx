@@ -4,7 +4,9 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   listContainer: {
+    marginTop: 0,
     width: 300,
+    marginLeft: -50,
   },
 }));
 
@@ -24,12 +26,6 @@ function UserReviewList(props) {
         avatar="https://randomuser.me/api/portraits/women/85.jpg"
         profil="Propriétaire"
         review="Son appart est super! En plus elle est super arrangeante."
-      />
-      <UserReview
-        name="Michel"
-        avatar="https://randomuser.me/api/portraits/men/33.jpg"
-        profil="Locataire"
-        review="Son appart est magnifique! En plus la situation géographique est top."
       />
     </div>
   );

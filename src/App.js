@@ -6,7 +6,6 @@ import Home from "./view/home/Home";
 import MarketPlace from "./view/marketplace/MarketPlace";
 import Connexion from "./common/components/Connexion";
 import DeposerBien from "./view/deposerbien/DeposerBien";
-import Profil from "./view/profil/components/Profil"
 
 function App() {
   return (
@@ -54,15 +53,6 @@ function App() {
           render={() => (
             <Main>
               <DeposerBien />
-            </Main>
-          )}
-        />
-        <Route
-          exact
-          path="/profil"
-          render={() => (
-            <Main>
-              <Profil />
             </Main>
           )}
         />

@@ -8,8 +8,6 @@ const useStyles = makeStyles((theme) => ({
   sticky: {
     display: "flex",
     justifyContent: "space-between",
-    backgroundColor: "#FFF2D9",
-    boxShadow: "0 3px 6px -1px #8CB0BC",
   },
 
   button: {
@@ -34,15 +32,14 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-    color: "black",
+    color: "#4E96AF",
     fontFamily: "'Comfortaa', cursive",
     fontSize: "40px",
-    marginRight: "500px",
   },
 
   toctoclogo: {
-    width: "130px",
-    height: "130px",
+    width: "150px",
+    height: "150px",
   },
 }));
 
@@ -52,20 +49,14 @@ function Header() {
     <nav className={classes.sticky}>
       <Link to="/">
         <img
-          src="/assets/img/logoblue.png"
+          src="/assets/img/logoheader.png"
           alt="logo"
           className={classes.toctoclogo}
         />
       </Link>
       <h1 className={classes.title}>Toc Toc</h1>
-      <Button
-        className={classes.button}
-        to="/connexion"
-        component={Link}
-        variant="contained"
-        color="primary"
-      >
-        Connexion
+      <Button className={classes.button} to="/connexion" component={Link} variant="contained" color="primary">
+            Connexion
       </Button>
       <BurgerMenu />
     </nav>
