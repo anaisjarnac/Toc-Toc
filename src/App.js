@@ -6,6 +6,8 @@ import Home from "./view/home/Home";
 import MarketPlace from "./view/marketplace/MarketPlace";
 import Connexion from "./common/components/Connexion";
 import AddFlat from "./view/addflat/AddFlat";
+import Contact from "./view/Contact";
+import Profil from "./view/profil/components/Profil";
 
 function App() {
   return (
@@ -53,6 +55,24 @@ function App() {
           render={() => (
             <Main>
               <AddFlat />
+            </Main>
+          )}
+        />
+        <Route
+          exact
+          path="/contact"
+          render={() => (
+            <Main>
+              <Contact />
+            </Main>
+          )}
+        />
+        <Route
+          exact
+          path="/profil"
+          render={() => (
+            <Main>
+              <Profil />
             </Main>
           )}
         />

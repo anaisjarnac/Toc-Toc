@@ -1,27 +1,33 @@
-import React, {useState} from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import {Link} from "react-router-dom";
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOpenOutlinedIcon from '@material-ui/icons/LockOpenOutlined';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React, { useState } from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import { Link } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOpenOutlinedIcon from "@material-ui/icons/LockOpenOutlined";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
 function Copyright() {
   return (
-    <Typography align="center" variant="body2" to="/" component={Link} color="textSecondary" >
-      {'Copyright © '}
-        TocToc
+    <Typography
+      align="center"
+      variant="body2"
+      to="/"
+      component={Link}
+      color="textSecondary"
+    >
+      {"Copyright © "}
+      TocToc
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -61,14 +67,13 @@ export default function Connexion() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- 
 
   const handleClick = () => {
     const userId = {
       email: email,
-      password: password
-    }
-  }
+      password: password,
+    };
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -81,7 +86,7 @@ export default function Connexion() {
           Connexion
         </Typography>
         <form className={classes.form} noValidate>
-          <TextField 
+          <TextField
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             variant="outlined"
@@ -132,21 +137,33 @@ export default function Connexion() {
             color="primary"
             className={classes.submit}
             onClick={handleClick}
-            to="/" 
+            to="/profil"
             component={Link}
           >
             C'est parti
           </Button>
           <Grid container>
             <Grid item xs>
-              <Typography to="/" component={Link} variant="body2" color='textPrimary' style={{textDecoration: 'none'}}>
+              <Typography
+                to="/"
+                component={Link}
+                variant="body2"
+                color="textPrimary"
+                style={{ textDecoration: "none" }}
+              >
                 Mot de passe oublié?
               </Typography>
             </Grid>
             <Grid item>
-              <Typography to="/inscription" component={Link} color='textPrimary' style={{textDecoration: 'none'}} variant='body2'>
+              <Typography
+                to="/inscription"
+                component={Link}
+                color="textPrimary"
+                style={{ textDecoration: "none" }}
+                variant="body2"
+              >
                 Pas encore de compte?
-                </Typography>
+              </Typography>
             </Grid>
           </Grid>
         </form>
