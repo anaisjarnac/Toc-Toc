@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import BurgerMenu from "../view/home/components/BurgerMenu";
+import Inscription from "../view/inscription/Inscription";
 
 const useStyles = makeStyles((theme) => ({
   sticky: {
@@ -64,3 +65,8 @@ function Header() {
 }
 
 export default Header;
+
+// {connectUser && (
+//   <p>{connectUser}</p>
+// )}
+// {!connectUser && <Inscription />}
