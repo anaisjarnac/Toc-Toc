@@ -10,6 +10,7 @@ import axios from "axios";
 import AddFlat from "./view/addflat/AddFlat";
 import Contact from "./view/Contact";
 import Profil from "./view/profil/components/Profil";
+import Myprofil from "./view/profil/components/Myprofil";
 
 function App() {
   const [connectedUser, setConnectedUser] = useState({});
