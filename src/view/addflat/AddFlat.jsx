@@ -6,7 +6,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core';
-//import axios from 'axios';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,46 +28,36 @@ function AddFlat(props) {
     city: '',
     district: '',
     images: [],
-    area: '',
+    area: 0,
     furnished: '',
     price: '',
     description: '',
   });
 
-  // const handleUploadImage = (imageUrl) => {
-  //   setImage((images) => [...images, imageUrl]);
-  // };
+  const handleUploadImage = (imageUrl) => {
+    const newImages = [...form.images, imageUrl];
+    setForm({...form, images: newImages});
+    console.log(newImages);
+  };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-
-//   const config = {
-//     headers: { "Authorization": `Bearer ${token}` }
-// };
-
-//   const postForm = () => {
-//     axios.post("https://toctoc-api.herokuapp.com/flat", form, config)
-//     .then(res => {
-//       console.log(res);
-//     })
-//   }
-
-
-//   const postForm = () => {
-//     axios.post("https://toctoc-api.herokuapp.com/flat", form, {
-//       headers: {
-//         'Authorization': `Bearer ${token}` }
-//       })
-//     .then(res => {
-//       console.log(res);
-//     })
-//   }
+  const postForm = () => {
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    axios.post("https://toctoc-api.herokuapp.com/flat", form, config)
+    .then(res => {
+      console.log(res.data);
+    })
+  }
 
   const handleClick = () => {
     console.log(form);
-    //postForm();
+    postForm();
   };
 
   return (
@@ -92,7 +82,10 @@ function AddFlat(props) {
             control={<Radio />}
             label="Appartement"
           />
-          <FormControlLabel value="house" control={<Radio />} label="Maison" />
+          <FormControlLabel 
+          value="house" 
+          control={<Radio />} 
+          label="Maison" />
         </RadioGroup>
       </div>
       <div>
@@ -115,8 +108,8 @@ function AddFlat(props) {
           value={form.furnished}
           onChange={handleChange}
         >
-          <FormControlLabel value="Oui" control={<Radio />} label="Oui" />
-          <FormControlLabel value="Non" control={<Radio />} label="Non" />
+          <FormControlLabel value="furnished" control={<Radio />} label="Oui" />
+          <FormControlLabel value="unfurnished" control={<Radio />} label="Non" />
         </RadioGroup>
       </div>
       <div>
@@ -146,12 +139,12 @@ function AddFlat(props) {
           onChange={handleChange}
         />
       </div>
-      {/* <div>
+      <div>
         <h2>Ajouter des photos</h2>
         <div>
-          <ImagesUpload onUpload={handleUploadImage} images={image} />
+          <ImagesUpload onUpload={handleUploadImage} images={form.images} form={form}/>
         </div>
-      </div> */}
+      </div>
       <div>
         <h2>Où se situe votre bien?</h2>
         <form className={classes.root} noValidate autoComplete="off">
