@@ -7,6 +7,7 @@ import MarketPlace from "./view/marketplace/MarketPlace";
 import Connexion from "./common/components/Connexion";
 import DeposerBien from "./view/deposerbien/DeposerBien";
 import Contact from "./view/Contact";
+import Profil from "./view/profil/components/Profil";
 
 function App() {
   return (
@@ -63,6 +64,15 @@ function App() {
           render={() => (
             <Main>
               <Contact />
+            </Main>
+          )}
+        />
+        <Route
+          exact
+          path="/profil"
+          render={() => (
+            <Main>
+              <Profil />
             </Main>
           )}
         />
