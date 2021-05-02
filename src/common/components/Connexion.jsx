@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import LockOpenOutlinedIcon from "@material-ui/icons/LockOpenOutlined";
@@ -15,6 +15,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
+import UserContext from "../../context/user";
 
 function Copyright() {
   return (
@@ -68,20 +69,38 @@ export default function Connexion() {
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
+  const { connectedUser, setConnectedUser } = useContext(UserContext);
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.preventDefault();
     const userId = {
       email: email,
       password: password,
     };
     try {
-    const token = await axios.post(
-      "http://toctoc-api.herokuapp.com/users/login",
-      userId
-    );
+      const token = await axios.post(
+        "http://toctoc-api.herokuapp.com/users/login",
+        userId
+      );
 
-    console.log(token.data);
-    localStorage.setItem("userToken", token.data.access_token);
+      console.log(token.data);
+      localStorage.setItem("userToken", token.data.access_token);
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token.data.access_token}`,
+        },
+      };
+
+      const userProfile = await axios.get(
+        "http://toctoc-api.herokuapp.com/users/profile",
+        config
+      );
+
+      setConnectedUser(userProfile.data);
+
+      history.push("/profil");
     } catch (e) {
       // ici afficher un message d'erreur à l'utilisateur
     }
@@ -149,8 +168,6 @@ export default function Connexion() {
             color="primary"
             className={classes.submit}
             onClick={handleClick}
-            to="/profil"
-            component={Link}
           >
             C'est parti
           </Button>

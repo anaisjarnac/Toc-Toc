@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import BurgerMenu from "../view/home/components/BurgerMenu";
 import Inscription from "../view/inscription/Inscription";
+import UserContext from "../context/user";
+import { faBullseye } from "@fortawesome/free-solid-svg-icons";
+import { TramRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   sticky: {
@@ -49,6 +52,15 @@ const useStyles = makeStyles((theme) => ({
 
 function Header() {
   const classes = useStyles();
+  const { connectedUser, setConnectedUser } = useContext(UserContext);
+  const history = useHistory();
+
+  const handleClick = () => {
+    setConnectedUser({});
+    localStorage.removeItem("userToken");
+    history.push("/");
+  };
+
   return (
     <nav className={classes.sticky}>
       <Link to="/">
@@ -59,23 +71,37 @@ function Header() {
         />
       </Link>
       <h1 className={classes.title}>Toc Toc</h1>
-      <Button
-        className={classes.button}
-        to="/connexion"
-        component={Link}
-        variant="contained"
-        color="primary"
-      >
-        Connexion
-      </Button>
+
+      <div>
+        {Object.keys(connectedUser).length > 0 && (
+          <div>
+            {connectedUser.firstName}
+            <Button
+              className={classes.button}
+              to="/connexion"
+              variant="contained"
+              color="primary"
+              onClick={handleClick}
+            >
+              Déconnexion
+            </Button>
+          </div>
+        )}
+        {Object.keys(connectedUser).length === 0 && (
+          <Button
+            className={classes.button}
+            to="/connexion"
+            component={Link}
+            variant="contained"
+            color="primary"
+          >
+            Connexion
+          </Button>
+        )}
+      </div>
       <BurgerMenu />
     </nav>
   );
 }
 
 export default Header;
-
-// {connectUser && (
-//   <p>{connectUser}</p>
-// )}
-// {!connectUser && <Inscription />}

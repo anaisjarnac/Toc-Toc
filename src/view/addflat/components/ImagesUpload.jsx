@@ -1,7 +1,7 @@
 import React, { createRef } from 'react';
 import axios from 'axios';
 
-function ImagesUpload({ onUpload, images }) {
+function ImagesUpload({ onUpload, images, form }) {
   const publicKey = process.env.REACT_APP_PUBLIC_KEY;
   const authEndpoint = process.env.REACT_APP_AUTHENTICATION_ENDPOINT;
 
@@ -51,7 +51,7 @@ function ImagesUpload({ onUpload, images }) {
           onChange={handleUpload}
         />
       </div>
-      {images.map((image, index) => {
+      {form.images.map((image, index) => {
         return <img src={image} alt="" key={index} />;
       })}
     </div>
