@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   footerlist: {
@@ -38,8 +39,10 @@ function Footer() {
         <li>
           <Button
             className={classes.button}
+            to="/contact"
+            component={Link}
             variant="contained"
-            color="secondary"
+            color="primary"
           >
             Contact
           </Button>
