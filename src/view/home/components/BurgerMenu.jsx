@@ -7,12 +7,13 @@ import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import HomeIcon from "@material-ui/icons/Home";
-import SentimentSatisfiedAltIcon from "@material-ui/icons/SentimentSatisfiedAlt";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import SearchIcon from "@material-ui/icons/Search";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import MenuIcon from "@material-ui/icons/Menu";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import AddLocationIcon from "@material-ui/icons/AddLocation";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -148,13 +149,17 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button
-                className={classes.nous}
-                to="/flat"
-                component={Link}
-              >
+              <Button className={classes.nous} to="/profil" component={Link}>
                 <ListItemIcon>
-                  <SentimentSatisfiedAltIcon />
+                  <AccountCircleIcon />
+                </ListItemIcon>
+                MON PROFIL
+              </Button>
+            </li>
+            <li>
+              <Button className={classes.nous} to="/flat" component={Link}>
+                <ListItemIcon>
+                  <AddLocationIcon />
                 </ListItemIcon>
                 DEPOSER UN BIEN
               </Button>
@@ -206,6 +211,14 @@ export default function BurgerMenu() {
                   <ContactSupportIcon />
                 </ListItemIcon>
                 CONTACTEZ-NOUS
+              </Button>
+            </li>
+            <li>
+              <Button className={classes.contact} to="/unic" component={Link}>
+                <ListItemIcon>
+                  <ContactSupportIcon />
+                </ListItemIcon>
+                BIEN SUR PAGE UNIQUE
               </Button>
             </li>
           </ul>

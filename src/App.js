@@ -10,6 +10,7 @@ import axios from "axios";
 import AddFlat from "./view/addflat/AddFlat";
 import Contact from "./view/Contact";
 import Profil from "./view/profil/components/Profil";
+import UnicFlatCard from "./view/UnicFlatCard/UnicFlatCard";
 
 function App() {
   const [connectedUser, setConnectedUser] = useState({});
@@ -100,6 +101,24 @@ function App() {
             render={() => (
               <Main>
                 <Profil />
+              </Main>
+            )}
+          />
+          <Route
+            exact
+            path="/contact"
+            render={() => (
+              <Main>
+                <Contact />
+              </Main>
+            )}
+          />
+           <Route
+            exact
+            path="/unic"
+            render={() => (
+              <Main>
+                <UnicFlatCard />
               </Main>
             )}
           />
