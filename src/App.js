@@ -114,7 +114,7 @@ function App() {
               </Main>
             )}
           />
-           <Route
+          <Route
             exact
             path="/unic"
             render={() => (
