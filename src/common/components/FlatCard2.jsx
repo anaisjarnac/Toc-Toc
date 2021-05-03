@@ -44,31 +44,32 @@ export default function FlatCard2(props) {
   return (
     <Card className={classes.root}>
       <CardHeader
-        avatar={
-          <Avatar
-            src={props.avatarImage}
-            aria-label="recipe"
-            className={classes.avatar}
-          >
-            {props.avatar}
-          </Avatar>
-        }
+        // avatar={
+        //   <Avatar
+        //     src={props.avatar}
+        //     aria-label="recipe"
+        //     className={classes.avatar}
+        //   >
+        //     {props.avatar}
+        //   </Avatar>
+        // }
         action={
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
         }
-        title={props.titre}
-        subheader={props.lieu}
+        title={props.title}
+        subheader={props.city}
+        // subheader={props.district}
       />
       <CardMedia
         className={classes.media}
-        image={props.image}
-        title={props.titre}
+        image={props.images}
+        title={props.title}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {props.prix}
+          {props.price}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {props.description}
