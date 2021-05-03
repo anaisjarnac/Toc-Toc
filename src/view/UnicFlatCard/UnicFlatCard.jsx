@@ -3,8 +3,9 @@ import CarousselCard from "./CarousselCard";
 import { makeStyles } from "@material-ui/core/styles";
 import HomeIcon from "@material-ui/icons/Home";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Avatar from "@material-ui/core/Avatar";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   flex: {
     display: "flex",
     alignItems: "center",
@@ -17,7 +18,16 @@ const useStyles = makeStyles({
     fontSize: "35px",
     color: "#8CB0BC",
   },
-});
+  root: {
+    display: "flex",
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
+  proname: {
+    marginTop: "20px",
+  },
+}));
 
 function UnicFlatCard(props) {
   const classes = useStyles();
@@ -31,6 +41,10 @@ function UnicFlatCard(props) {
           </ListItemIcon>
           Loft avec terrasse
         </h1>
+        <div className={classes.root}>
+          <Avatar alt="Proprietaire" src="/assets/img/men.jpeg" />
+          <p className={classes.proname}>Jean-Marc Dupuis</p>
+        </div>
         <h2>Quartier Saint Michel</h2>
         <p>
           Ce magnifique loft refait à neuf en 2019, au design moderne et épurée,
