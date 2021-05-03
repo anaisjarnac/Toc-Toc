@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import RangeSlider from "./RangeSlider";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  FormGroup,
-  FormControlLabel,
-  RadioGroup,
-  Radio,
-} from "@material-ui/core";
+import { FormControlLabel, RadioGroup, Radio } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";

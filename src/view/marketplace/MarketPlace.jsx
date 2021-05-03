@@ -3,9 +3,6 @@ import Filter from "./components/Filter";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container } from "@material-ui/core";
 import FlatCardList from "../../common/components/FlatCardList";
-import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
-import Contact from "../Contact";
 
 const useStyles = makeStyles(() => ({
   root: {

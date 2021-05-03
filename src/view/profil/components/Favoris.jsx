@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core";
 import FlatCard2 from "../../../common/components/FlatCard2";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import HomeIcon from "@material-ui/icons/Home";
 
 const useStyles = makeStyles((theme) => ({
   title: {

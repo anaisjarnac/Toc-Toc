@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import ImagesUpload from './components/ImagesUpload';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core';
-import axios from 'axios';
-import { useHistory } from 'react-router';
+import React, { useEffect } from "react";
+import ImagesUpload from "./components/ImagesUpload";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core";
+import axios from "axios";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& > *': {
+    "& > *": {
       margin: theme.spacing(1),
     },
   },
@@ -24,15 +24,15 @@ function AddFlat({ match }) {
   const classes = useStyles();
 
   const [form, setForm] = React.useState({
-    type: '',
-    title: '',
-    city: '',
-    district: '',
+    type: "",
+    title: "",
+    city: "",
+    district: "",
     images: [],
     area: 0,
-    furnished: '',
-    price: '',
-    description: '',
+    furnished: "",
+    price: "",
+    description: "",
   });
 
   //Check s'il y a une ID pour préremplir le form avec les data de l'API
@@ -58,7 +58,7 @@ function AddFlat({ match }) {
   const history = useHistory();
 
   const postForm = () => {
-    const token = localStorage.getItem('userToken');
+    const token = localStorage.getItem("userToken");
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -73,7 +73,7 @@ function AddFlat({ match }) {
       // });
     } else {
       axios
-        .post('https://toctoc-api.herokuapp.com/flat', form, config)
+        .post("https://toctoc-api.herokuapp.com/flat", form, config)
         .then((res) => {
           console.log(res.data);
         });

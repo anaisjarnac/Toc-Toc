@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -10,7 +10,6 @@ const useStyles = makeStyles({
     width: "40%",
   },
   img: {
-    height: "600px",
     width: "600px",
     maxWidth: "100%",
     height: "auto",
