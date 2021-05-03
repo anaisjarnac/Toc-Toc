@@ -1,12 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { Link, useHistory } from "react-router-dom";
 import BurgerMenu from "../view/home/components/BurgerMenu";
-import Inscription from "../view/inscription/Inscription";
+
 import UserContext from "../context/user";
-import { faBullseye } from "@fortawesome/free-solid-svg-icons";
-import { TramRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   sticky: {

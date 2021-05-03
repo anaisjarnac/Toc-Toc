@@ -95,7 +95,6 @@ const useStyles = makeStyles({
   contact: {
     border: "none",
     color: "black",
-    color: "black",
     padding: "20px",
     backgroundColor: "white",
     fontFamily: "'Comfortaa', cursive",
@@ -165,11 +164,7 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button
-                className={classes.nous}
-                to="/flat/:id"
-                component={Link}
-              >
+              <Button className={classes.nous} to="/flat/:id" component={Link}>
                 <ListItemIcon>
                   <AddLocationIcon />
                 </ListItemIcon>

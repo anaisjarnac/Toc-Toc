@@ -15,11 +15,15 @@ import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography
+      variant="body2"
+      color="textSecondary"
+      align="center"
+      component={Link}
+      to="/"
+    >
       {"Copyright © "}
-      <Link color="inherit" to="/">
-        Toc Toc
-      </Link>{" "}
+      Toc Toc
       {new Date().getFullYear()}
       {"."}
     </Typography>
