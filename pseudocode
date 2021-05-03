@@ -1,0 +1,15 @@
+sur la vue d'un flat
+    ajouter un bouton edit
+
+au click
+    diriger vers addflat
+    préremplir avec les données correspondant à l'id du flat
+    valider les modifications
+    post vers api
+    retour sur la vue du flat
+
+    
+
+créer bouton edit
+créer route ds app
+créer link sur le bouton edit

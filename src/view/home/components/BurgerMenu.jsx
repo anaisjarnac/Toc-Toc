@@ -161,7 +161,19 @@ export default function BurgerMenu() {
                 <ListItemIcon>
                   <AddLocationIcon />
                 </ListItemIcon>
-                DEPOSER UN BIEN
+                add
+              </Button>
+            </li>
+            <li>
+              <Button
+                className={classes.nous}
+                to="/edit/:id"
+                component={Link}
+              >
+                <ListItemIcon>
+                  <AddLocationIcon />
+                </ListItemIcon>
+                edit
               </Button>
             </li>
             <li>
