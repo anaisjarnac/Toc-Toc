@@ -32,10 +32,16 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    border: "solid #C6DADA 2px",
+    borderRadius: "40px",
+    boxShadow: "5px 5px 5px #8CB0BC",
+    padding: "40px",
+    backgroundColor: "#FADDB6",
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: "#C6DADA",
+    color: "black",
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -43,6 +49,8 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#C6DADA",
+    color: "black",
   },
   root: {
     "& .MuiTextField-root": {
@@ -141,6 +149,7 @@ export default function SignUp() {
                 name={"message"}
                 rows={4}
                 rowsMax={7}
+                fullWidth
               />
             </Grid>
           </Grid>

@@ -54,8 +54,8 @@ export default function FlatCard2(props) {
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
           </IconButton>
         }
         title={props.titre}
@@ -74,15 +74,6 @@ export default function FlatCard2(props) {
           {props.description}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
-        <p>Référence:{props.reference}</p>
-      </CardActions>
     </Card>
   );
 }
