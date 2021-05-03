@@ -88,7 +88,7 @@ function App() {
           />
           <Route
             exact
-            path="/edit/:id"
+            path="/flat/:id"
             render={(matchProps) => (
               <Main>
                 <AddFlat {...matchProps} />
