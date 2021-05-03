@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Filter(props) {
+function Filter({ postForm }) {
   const classes = useStyles();
 
   const [form, setForm] = React.useState({
@@ -68,29 +68,9 @@ function Filter(props) {
     setForm({ ...form, area: newValue });
   };
 
-  const postForm = () => {
-    const token = localStorage.getItem("userToken");
-    const config = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
-    axios
-      .post(
-        "https://toctoc-api.herokuapp.com/flat/search",
-        {
-          ...form,
-          price: { min: form.price[0], max: form.price[1] },
-          area: { min: form.area[0], max: form.area[1] },
-        },
-        config
-      )
-      .then((res) => {
-        console.log(res.data);
-      });
-  };
-
   const handleClickValidate = () => {
     console.log(form);
-    postForm();
+    postForm(form);
   };
 
   return (
