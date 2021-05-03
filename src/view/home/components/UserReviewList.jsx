@@ -29,7 +29,7 @@ function UserReviewList(props) {
         name="Michel"
         avatar="https://randomuser.me/api/portraits/men/33.jpg"
         profil="Locataire"
-        review="Son appart est magnifique! En plus la situation géographique est top."
+        review="Locataire au top, aucun soucis en 3 ans de location. Je recommande."
       />
     </div>
   );

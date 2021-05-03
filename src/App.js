@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import Inscription from './view/inscription/Inscription';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Main from './layout/Main';
-import Home from './view/home/Home';
-import MarketPlace from './view/marketplace/MarketPlace';
-import Connexion from './common/components/Connexion';
-import UserContext from './context/user';
-import axios from 'axios';
-import AddFlat from './view/addflat/AddFlat';
-import Contact from './view/Contact';
-import Profil from './view/profil/components/Profil';
-import Myprofil from './view/profil/components/Myprofil';
+import React, { useEffect, useState } from "react";
+import Inscription from "./view/inscription/Inscription";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Main from "./layout/Main";
+import Home from "./view/home/Home";
+import MarketPlace from "./view/marketplace/MarketPlace";
+import Connexion from "./common/components/Connexion";
+import UserContext from "./context/user";
+import axios from "axios";
+import AddFlat from "./view/addflat/AddFlat";
+import Contact from "./view/Contact";
+import Profil from "./view/profil/components/Profil";
+import UnicFlatCard from "./view/UnicFlatCard/UnicFlatCard";
 
 function App() {
   const [connectedUser, setConnectedUser] = useState({});
@@ -110,6 +110,24 @@ function App() {
             render={() => (
               <Main>
                 <Profil />
+              </Main>
+            )}
+          />
+          <Route
+            exact
+            path="/contact"
+            render={() => (
+              <Main>
+                <Contact />
+              </Main>
+            )}
+          />
+          <Route
+            exact
+            path="/unic"
+            render={() => (
+              <Main>
+                <UnicFlatCard />
               </Main>
             )}
           />

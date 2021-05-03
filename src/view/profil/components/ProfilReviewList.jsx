@@ -24,7 +24,7 @@ function ProfilReviewList(props) {
           name="Jean-Michel"
           avatar="https://randomuser.me/api/portraits/men/66.jpg"
           profil="Propriétaire"
-          review="Jean-Michel est un super propriétaire, trés à l'écoute et disponible."
+          review="Locataire parfait, très respectueux de mon bien. Les paiements ont tous été effectués à temps."
         />
       </div>
       <div className={classes.user}>
