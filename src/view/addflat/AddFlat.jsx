@@ -39,11 +39,11 @@ function AddFlat({ match }) {
   useEffect(() => {
     if (match?.params?.id) {
       axios
-        .get(` https://toctoc-api.herokuapp.com/flat${match.params.id} `)
+        .get(` https://toctoc-api.herokuapp.com/flat/${match.params.id} `)
         .then((response) => setForm(response.data));
     }
     console.log(form);
-  }, []);
+  }, [match.params.id]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -64,13 +64,14 @@ function AddFlat({ match }) {
     };
     if (match?.params?.id) {
       axios.patch(
-        `https://toctoc-api.herokuapp.com/flat${match.params.id}`,
-        form
-      );
-      //à adapter en fonction de la redirection souhaitée!
-      // .then(() => {
-      //   history.push('/');
-      // });
+        `https://toctoc-api.herokuapp.com/flat/${match.params.id}`,
+        form, config
+      )
+      //redirection
+      .then(() => {
+        history.push('/');
+      });
+
     } else {
       axios
         .post("https://toctoc-api.herokuapp.com/flat", form, config)

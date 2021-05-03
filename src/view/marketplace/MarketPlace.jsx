@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Filter from "./components/Filter";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container } from "@material-ui/core";
 import FlatCardList from "../../common/components/FlatCardList";
+import Grid from "@material-ui/core/Grid";
+import axios from "axios";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -12,19 +14,49 @@ const useStyles = makeStyles(() => ({
 
 function MarketPlace() {
   const classes = useStyles();
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    postForm({});
+  }, []);
+
+  const postForm = (form) => {
+    const token = localStorage.getItem("userToken");
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    let criteria = form;
+    if (criteria.price) {
+      criteria = {
+        ...criteria,
+        price: { min: criteria.price[0], max: criteria.price[1] },
+      };
+    }
+    if (criteria.area) {
+      criteria = {
+        ...criteria,
+        area: { min: criteria.area[0], max: criteria.area[1] },
+      };
+    }
+    axios
+      .post("https://toctoc-api.herokuapp.com/flat/search", criteria, config)
+      .then((res) => {
+        setCards(res.data[0].data);
+      });
+  };
 
   return (
     <div className={classes.root}>
       {/* <Grid container>
         <Grid item> */}
       <div>
-        <Filter />
+        <Filter postForm={postForm} />
       </div>
       {/* </Grid>
       </Grid> */}
       <Container>
         <div>
-          <FlatCardList />
+          <FlatCardList cards={cards} />
         </div>
       </Container>
     </div>

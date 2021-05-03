@@ -164,7 +164,7 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button className={classes.nous} to="/edit/:id" component={Link}>
+              <Button className={classes.nous} to="/flat/:id" component={Link}>
                 <ListItemIcon>
                   <AddLocationIcon />
                 </ListItemIcon>
