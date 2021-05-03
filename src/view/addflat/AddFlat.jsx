@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ImagesUpload from './components/ImagesUpload';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function AddFlat(props) {
+function AddFlat({ match }) {
   const classes = useStyles();
 
   const [form, setForm] = React.useState({
@@ -34,29 +35,52 @@ function AddFlat(props) {
     description: '',
   });
 
-  const handleUploadImage = (imageUrl) => {
-    const newImages = [...form.images, imageUrl];
-    setForm({...form, images: newImages});
-    console.log(newImages);
-  };
+  //Check s'il y a une ID pour préremplir le form avec les data de l'API
+  useEffect(() => {
+    if (match?.params?.id) {
+      axios
+        .get(` https://toctoc-api.herokuapp.com/flat${match.params.id} `)
+        .then((response) => setForm(response.data));
+    }
+    console.log(form);
+  }, []);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleUploadImage = (imageUrl) => {
+    const newImages = [...form.images, imageUrl];
+    setForm({ ...form, images: newImages });
+    console.log(newImages);
+  };
+
+  const history = useHistory();
+
   const postForm = () => {
-    const token = localStorage.getItem("userToken");
+    const token = localStorage.getItem('userToken');
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    axios.post("https://toctoc-api.herokuapp.com/flat", form, config)
-    .then(res => {
-      console.log(res.data);
-    })
-  }
+    if (match?.params?.id) {
+      axios.patch(
+        `https://toctoc-api.herokuapp.com/flat${match.params.id}`,
+        form
+      );
+      //à adapter en fonction de la redirection souhaitée!
+      // .then(() => {
+      //   history.push('/');
+      // });
+    } else {
+      axios
+        .post('https://toctoc-api.herokuapp.com/flat', form, config)
+        .then((res) => {
+          console.log(res.data);
+        });
+    }
+  };
 
   const handleClick = () => {
-    console.log(form);
     postForm();
   };
 
@@ -82,10 +106,7 @@ function AddFlat(props) {
             control={<Radio />}
             label="Appartement"
           />
-          <FormControlLabel 
-          value="house" 
-          control={<Radio />} 
-          label="Maison" />
+          <FormControlLabel value="house" control={<Radio />} label="Maison" />
         </RadioGroup>
       </div>
       <div>
@@ -109,7 +130,11 @@ function AddFlat(props) {
           onChange={handleChange}
         >
           <FormControlLabel value="furnished" control={<Radio />} label="Oui" />
-          <FormControlLabel value="unfurnished" control={<Radio />} label="Non" />
+          <FormControlLabel
+            value="unfurnished"
+            control={<Radio />}
+            label="Non"
+          />
         </RadioGroup>
       </div>
       <div>
@@ -142,7 +167,11 @@ function AddFlat(props) {
       <div>
         <h2>Ajouter des photos</h2>
         <div>
-          <ImagesUpload onUpload={handleUploadImage} images={form.images} form={form}/>
+          <ImagesUpload
+            onUpload={handleUploadImage}
+            images={form.images}
+            form={form}
+          />
         </div>
       </div>
       <div>

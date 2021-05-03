@@ -156,7 +156,19 @@ export default function BurgerMenu() {
                 <ListItemIcon>
                   <SentimentSatisfiedAltIcon />
                 </ListItemIcon>
-                DEPOSER UN BIEN
+                add
+              </Button>
+            </li>
+            <li>
+              <Button
+                className={classes.nous}
+                to="/edit/:id"
+                component={Link}
+              >
+                <ListItemIcon>
+                  <SentimentSatisfiedAltIcon />
+                </ListItemIcon>
+                edit
               </Button>
             </li>
             <li>

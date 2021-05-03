@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
-import Inscription from "./view/inscription/Inscription";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Main from "./layout/Main";
-import Home from "./view/home/Home";
-import MarketPlace from "./view/marketplace/MarketPlace";
-import Connexion from "./common/components/Connexion";
-import UserContext from "./context/user";
-import axios from "axios";
-import AddFlat from "./view/addflat/AddFlat";
-import Contact from "./view/Contact";
-import Profil from "./view/profil/components/Profil";
-import Myprofil from "./view/profil/components/Myprofil";
+import React, { useEffect, useState } from 'react';
+import Inscription from './view/inscription/Inscription';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Main from './layout/Main';
+import Home from './view/home/Home';
+import MarketPlace from './view/marketplace/MarketPlace';
+import Connexion from './common/components/Connexion';
+import UserContext from './context/user';
+import axios from 'axios';
+import AddFlat from './view/addflat/AddFlat';
+import Contact from './view/Contact';
+import Profil from './view/profil/components/Profil';
+import Myprofil from './view/profil/components/Myprofil';
 
 function App() {
   const [connectedUser, setConnectedUser] = useState({});
 
   useEffect(() => {
     const connectUser = async () => {
-      const accessToken = localStorage.getItem("userToken");
+      const accessToken = localStorage.getItem('userToken');
       if (accessToken) {
         const config = {
           headers: {
@@ -26,7 +26,7 @@ function App() {
         };
 
         const userProfile = await axios.get(
-          "http://toctoc-api.herokuapp.com/users/profile",
+          'http://toctoc-api.herokuapp.com/users/profile',
           config
         );
 
@@ -80,9 +80,18 @@ function App() {
           <Route
             exact
             path="/flat"
-            render={() => (
+            render={(matchProps) => (
               <Main>
-                <AddFlat />
+                <AddFlat {...matchProps} />
+              </Main>
+            )}
+          />
+          <Route
+            exact
+            path="/edit/:id"
+            render={(matchProps) => (
+              <Main>
+                <AddFlat {...matchProps} />
               </Main>
             )}
           />
