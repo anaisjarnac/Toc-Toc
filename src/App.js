@@ -10,14 +10,14 @@ import axios from "axios";
 import AddFlat from "./view/addflat/AddFlat";
 import Contact from "./view/Contact";
 import Profil from "./view/profil/components/Profil";
-import Myprofil from "./view/profil/components/Myprofil";
+import UnicFlatCard from "./view/UnicFlatCard/UnicFlatCard";
 
 function App() {
   const [connectedUser, setConnectedUser] = useState({});
 
   useEffect(() => {
     const connectUser = async () => {
-      const accessToken = localStorage.getItem("userToken");
+      const accessToken = localStorage.getItem('userToken');
       if (accessToken) {
         const config = {
           headers: {
@@ -26,7 +26,7 @@ function App() {
         };
 
         const userProfile = await axios.get(
-          "http://toctoc-api.herokuapp.com/users/profile",
+          'http://toctoc-api.herokuapp.com/users/profile',
           config
         );
 
@@ -80,9 +80,18 @@ function App() {
           <Route
             exact
             path="/flat"
-            render={() => (
+            render={(matchProps) => (
               <Main>
-                <AddFlat />
+                <AddFlat {...matchProps} />
+              </Main>
+            )}
+          />
+          <Route
+            exact
+            path="/edit/:id"
+            render={(matchProps) => (
+              <Main>
+                <AddFlat {...matchProps} />
               </Main>
             )}
           />
@@ -101,6 +110,24 @@ function App() {
             render={() => (
               <Main>
                 <Profil />
+              </Main>
+            )}
+          />
+          <Route
+            exact
+            path="/contact"
+            render={() => (
+              <Main>
+                <Contact />
+              </Main>
+            )}
+          />
+          <Route
+            exact
+            path="/unic"
+            render={() => (
+              <Main>
+                <UnicFlatCard />
               </Main>
             )}
           />
