@@ -1,45 +1,47 @@
-import React, { useState } from 'react';
-import RangeSlider from './RangeSlider';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from "react";
+import RangeSlider from "./RangeSlider";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   FormGroup,
   FormControlLabel,
   RadioGroup,
   Radio,
-} from '@material-ui/core';
-import { Link } from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
-import axios from 'axios';
+} from "@material-ui/core";
+import { Link } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   filter: {
-    marginTop: '50px',
-    padding: '50px 0 0 50px',
+    marginTop: "50px",
+    padding: "50px 0 0 50px",
     // backgroundColor: "#C6DADA",
-    borderRadius: '40px',
-    boxShadow: '2px 4px 4px #FADDB6',
-    width: '400px',
+    borderRadius: "40px",
+    boxShadow: "2px 4px 4px #FADDB6",
+    width: "400px",
   },
   title: {
-    fontSize: '1.2em',
-    fontWeight: 'bolder',
+    fontSize: "1.2em",
+    fontWeight: "bolder",
   },
   diff: {
-    color: '#3f51b5',
+    color: "#3f51b5",
   },
   champ: {
-    '& > *': {
+    "& > *": {
       margin: theme.spacing(1),
-      width: '80%',
+      width: "80%",
     },
   },
   button: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: "#C6DADA",
+    color: "black",
   },
 }));
 
@@ -47,11 +49,11 @@ function Filter(props) {
   const classes = useStyles();
 
   const [form, setForm] = React.useState({
-    location: '',
+    location: "",
     price: [0, 4000],
     area: [0, 300],
     type: [],
-    furnished: '',
+    furnished: "",
   });
 
   const handleChange = (e) => {
@@ -67,13 +69,13 @@ function Filter(props) {
   };
 
   const postForm = () => {
-    const token = localStorage.getItem('userToken');
+    const token = localStorage.getItem("userToken");
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
     axios
       .post(
-        'https://toctoc-api.herokuapp.com/flat/search',
+        "https://toctoc-api.herokuapp.com/flat/search",
         {
           ...form,
           price: { min: form.price[0], max: form.price[1] },
@@ -95,10 +97,8 @@ function Filter(props) {
     <div className={classes.root}>
       <div className={classes.filter}>
         <div className={classes.box1}>
-          <p className={classes.title}>Type</p>
-
           <div>
-            <h2>Où se situe votre bien?</h2>
+            <p className={classes.title}>Où se situe votre bien?</p>
             <form className={classes.root} noValidate autoComplete="off">
               <TextField
                 label="Ville"
@@ -109,6 +109,7 @@ function Filter(props) {
               />
             </form>
           </div>
+          <p className={classes.title}>Type</p>
 
           <Grid container>
             <Grid item xl={6}>
@@ -128,7 +129,7 @@ function Filter(props) {
           </Grid>
 
           <div>
-            <h2>Votre bien est-il meublé?</h2>
+            <p className={classes.title}>Equipement</p>
 
             <RadioGroup
               name="furnished"
@@ -143,7 +144,7 @@ function Filter(props) {
           <div className={classes.box3}>
             <p className={classes.title}>Prix</p>
             <p>
-              Min : <span className={classes.diff}>0 €</span> • Max :{' '}
+              Min : <span className={classes.diff}>0 €</span> • Max :{" "}
               <span className={classes.diff}>4000 €</span>
             </p>
             <RangeSlider
@@ -158,7 +159,7 @@ function Filter(props) {
           <div className={classes.box4}>
             <p className={classes.title}>Surface</p>
             <p>
-              Min : <span className={classes.diff}>0 m²</span> • Max :{' '}
+              Min : <span className={classes.diff}>0 m²</span> • Max :{" "}
               <span className={classes.diff}>300 m²</span>
             </p>
             <RangeSlider
@@ -171,7 +172,7 @@ function Filter(props) {
             />
           </div>
 
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: "center" }}>
             <Button
               variant="contained"
               color="primary"
