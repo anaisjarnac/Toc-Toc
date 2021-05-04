@@ -8,6 +8,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { faFileExport } from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   submit: {
@@ -24,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
   flatDescription: {
     width: 600,
   },
+
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+  }
 }));
 
 function AddFlat({ match }) {
@@ -93,6 +99,7 @@ function AddFlat({ match }) {
   };
 
   return (
+    <div className={classes.container}>
     <div>
       <div>
         <h2>Titre de votre annonce</h2>
@@ -213,6 +220,7 @@ function AddFlat({ match }) {
           Valider
         </Button>
       </div>
+    </div>
     </div>
   );
 }
