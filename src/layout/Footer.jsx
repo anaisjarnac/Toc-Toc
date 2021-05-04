@@ -34,7 +34,9 @@ function Footer() {
     <div className={classes.foot}>
       <ul className={classes.footerlist}>
         <li>
-          <h1 className={classes.title}>Toc Toc</h1>
+          <Button className={classes.title} to="/" component={Link}>
+            Toc Toc
+          </Button>
         </li>
         <li>
           <Button
