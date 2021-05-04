@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#FFF2D9",
     boxShadow: "0 3px 6px -1px #8CB0BC",
   },
-
   button: {
     color: "white",
     backgroundColor: "#F6C179",
@@ -21,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     margin: "45px",
     "&:hover": {
       background: "#4E96AF",
+    },
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
     },
   },
   burger: {
@@ -47,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
   toctoclogo: {
     width: "130px",
     height: "130px",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   name: {
     color: "#F6C179",

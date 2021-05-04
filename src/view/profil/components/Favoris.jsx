@@ -61,5 +61,3 @@ function Favoris(props) {
 }
 
 export default Favoris;
-
-// /flat/identifiantduflat

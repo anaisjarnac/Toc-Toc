@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50px",
     backgroundColor: "#FFF2D9",
     width: "70%",
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
 
   button: {
