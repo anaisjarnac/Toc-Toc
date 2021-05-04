@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { Link, useHistory } from "react-router-dom";
 import BurgerMenu from "../view/home/components/BurgerMenu";
-
 import UserContext from "../context/user";
 
 const useStyles = makeStyles((theme) => ({
@@ -68,7 +67,10 @@ function Header() {
           className={classes.toctoclogo}
         />
       </Link>
-      <h1 className={classes.title}>Toc Toc</h1>
+
+      <Button className={classes.title} to="/" component={Link}>
+        Toc Toc
+      </Button>
 
       <div>
         {Object.keys(connectedUser).length > 0 && (
