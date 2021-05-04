@@ -46,7 +46,7 @@ function Item(props) {
   const classes = useStyles();
   return (
     <Paper>
-      <img src={props.item.image} className={classes.img} />
+      <img src={props.item.image} alt="logo" className={classes.img} />
     </Paper>
   );
 }
