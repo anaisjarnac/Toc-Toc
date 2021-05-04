@@ -7,6 +7,9 @@ const useStyles = makeStyles({
   root: {
     width: "80%",
   },
+  slider: {
+    color: "#F6C179",
+  },
 });
 
 function valuetext(value) {
@@ -20,6 +23,7 @@ export default function RangeSlider({ min, max, step, onChange, value }) {
     <div className={classes.root}>
       <Typography id="range-slider" gutterBottom></Typography>
       <Slider
+        className={classes.slider}
         value={value}
         min={min}
         max={max}

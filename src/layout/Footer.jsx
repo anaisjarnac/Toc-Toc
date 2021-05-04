@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#FFF2D9",
     listStyle: "none",
   },
-
   button: {
     color: "white",
     backgroundColor: "#F6C179",
@@ -18,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
       background: "#4E96AF",
     },
     marginRight: 50,
+    marginBottom: 20,
     height: "3em",
     marginTop: "20px",
     fontFamily: "'Comfortaa', cursive",
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: "black",
     fontFamily: "'Fredoka One', cursive",
+    marginTop: 30,
   },
 }));
 

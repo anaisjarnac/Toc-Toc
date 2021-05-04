@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import FlatCard2 from "../../../common/components/FlatCard2";
 import HomeIcon from "@material-ui/icons/Home";
 import axios from "axios";
+import UserContext from "../../../context/user";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -25,18 +26,22 @@ const useStyles = makeStyles((theme) => ({
 function MesBiens(props) {
   const classes = useStyles();
 
-  // const accessToken = localStorage.getItem('userToken');
-  // if (accessToken) {
-  //   const config = {
-  //     headers: {
-  //       Authorization: `Bearer ${accessToken}`,
-  //     },
-  //   };
+  const { connectedUser } = useContext(UserContext);
+  const [flats, setFlats] = useState([]);
 
-  //   const userProfile = await axios.get(
-  //     'http://toctoc-api.herokuapp.com/users/flat/my-flat',
-  //     config
-  //   );
+  useEffect(() => {
+    console.log(connectedUser);
+    if (Object.keys(connectedUser).length > 0) {
+      Promise.all(
+        connectedUser.flats.map((item) => {
+          const req = axios.get(
+            `https://toctoc-api.herokuapp.com/flat/my-flat`
+          );
+          return req;
+        })
+      ).then((response) => setFlats(response));
+    }
+  }, []);
 
   return (
     <div>
@@ -47,7 +52,9 @@ function MesBiens(props) {
         </h1>
       </div>
       <div className={classes.flat}>
-        <FlatCard2 />
+        {flats.map((flat) => (
+          <FlatCard2 {...flat.data} />
+        ))}
       </div>
     </div>
   );

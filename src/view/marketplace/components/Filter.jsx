@@ -34,7 +34,12 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "#C6DADA",
+    backgroundColor: "#F6C179",
+    "&:hover": {
+      background: "#4E96AF",
+    },
+  },
+  diff: {
     color: "black",
   },
 }));
@@ -122,6 +127,7 @@ function Filter({ postForm }) {
               <span className={classes.diff}>4000 €</span>
             </p>
             <RangeSlider
+              className={classes.slider}
               value={form.price}
               step={100}
               onChange={handlePrice}
@@ -137,6 +143,7 @@ function Filter({ postForm }) {
               <span className={classes.diff}>300 m²</span>
             </p>
             <RangeSlider
+              className={classes.slider}
               value={form.area}
               step={10}
               onChange={handleArea}
@@ -148,12 +155,14 @@ function Filter({ postForm }) {
 
           <div style={{ textAlign: "center" }}>
             <Button
+              to="/marketplace"
+              component={Link}
               variant="contained"
-              color="primary"
+              color="secondary"
               className={classes.button}
               onClick={handleClickValidate}
             >
-              <Link to="/marketplace">Valider</Link>
+              Valider
             </Button>
           </div>
         </div>
