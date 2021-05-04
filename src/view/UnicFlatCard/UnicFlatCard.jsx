@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CarousselCard from "./CarousselCard";
 import { makeStyles } from "@material-ui/core/styles";
 import HomeIcon from "@material-ui/icons/Home";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Avatar from "@material-ui/core/Avatar";
+import axios from "axios";
+import UserContext from "../../context/user";
 
 const useStyles = makeStyles((theme) => ({
   flex: {
@@ -31,6 +33,25 @@ const useStyles = makeStyles((theme) => ({
 
 function UnicFlatCard(props) {
   const classes = useStyles();
+
+  // const [unicflat, setUnicFlat] = useState([]);
+  // const { connectedUser } = useContext(UserContext);
+
+  // useEffect(() => {
+  //   console.log(connectedUser);
+  //   if (Object.keys(connectedUser).length > 0) {
+  //     Promise.all(
+  //       connectedUser.unicflat.map((item) => {
+  //         const req = axios.get(
+  //           `https://toctoc-api.herokuapp.com/flat/${item}`
+  //         );
+  //         return req;
+  //       })
+  //     ).then((response) => setUnicFlat(response));
+  //   }
+  // }, []);
+  // console.log(unicflat);
+
   return (
     <div className={classes.flex}>
       <CarousselCard />

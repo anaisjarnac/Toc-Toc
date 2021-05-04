@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core";
 import FlatCard2 from "../../../common/components/FlatCard2";
 import HomeIcon from "@material-ui/icons/Home";
-import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   title: {
