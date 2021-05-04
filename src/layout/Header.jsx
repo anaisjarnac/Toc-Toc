@@ -35,15 +35,23 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-    color: "black",
-    fontFamily: "'Comfortaa', cursive",
-    fontSize: "40px",
-    marginRight: "500px",
+    fontFamily: "'Caveat', cursive",
+    color: "#8CB0BC",
+    fontSize: "60px",
+    background: "none",
+    border: "none",
+    marginRight: "300px",
+    marginBottom: "10px",
   },
 
   toctoclogo: {
     width: "130px",
     height: "130px",
+  },
+  name: {
+    color: "#F6C179",
+    fontFamily: "'Caveat', cursive",
+    fontSize: "30px",
   },
 }));
 
@@ -68,13 +76,19 @@ function Header() {
         />
       </Link>
 
-      <Button className={classes.title} to="/" component={Link}>
-        Toc Toc
-      </Button>
+      <button className={classes.title}>
+        <Link
+          to="/"
+          className={classes.title}
+          style={{ textDecoration: "none" }}
+        >
+          Toc Toc
+        </Link>
+      </button>
 
       <div>
         {Object.keys(connectedUser).length > 0 && (
-          <div>
+          <div className={classes.name}>
             {connectedUser.firstName}
             <Button
               className={classes.button}
