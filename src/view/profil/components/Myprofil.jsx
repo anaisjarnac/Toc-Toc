@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import UserContext from "../../../context/user";
+import ImagesProfil from "./ImagesProfil";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -30,7 +31,13 @@ function Myprofil(props) {
   const classes = useStyles();
   const { connectedUser } = useContext(UserContext);
 
-      
+  const [profilImg, setProfilImg] = React.useState("");
+  
+  const handleUploadImage = (imageUrl) => {
+    setProfilImg(imageUrl);
+    console.log(profilImg)
+  }
+   
   return (
     <div className={classes.container}>
       <div className={classes.name}>
@@ -40,10 +47,14 @@ function Myprofil(props) {
       </div>
       <div>
         <Avatar
+        
           className={classes.image}
           alt="Ginette"
-          src="/assets/img/avatar.jpeg"
+          src={profilImg}
         />
+      </div>
+      <div>
+        <ImagesProfil onUpload={handleUploadImage}/>
       </div>
     </div>
   );

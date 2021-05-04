@@ -43,7 +43,7 @@ function UnicFlatCard(props) {
         </h1>
         <div className={classes.root}>
           <Avatar alt="Proprietaire" src="/assets/img/men.jpeg" />
-          <p className={classes.proname}>Jean-Marc Dupuis</p>
+          <p className={classes.proname}>Michou Dupond</p>
         </div>
         <h2>Quartier Saint Michel</h2>
         <p>
