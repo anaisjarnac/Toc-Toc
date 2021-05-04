@@ -10,6 +10,12 @@ import axios from "axios";
 import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
+  submit: {
+    backgroundColor: "#F6C179",
+    "&:hover": {
+      background: "#4E96AF",
+    },
+  },
   root: {
     "& > *": {
       margin: theme.spacing(1),
@@ -63,15 +69,16 @@ function AddFlat({ match }) {
       headers: { Authorization: `Bearer ${token}` },
     };
     if (match?.params?.id) {
-      axios.patch(
-        `https://toctoc-api.herokuapp.com/flat/${match.params.id}`,
-        form, config
-      )
-      //redirection
-      .then(() => {
-        history.push('/');
-      });
-
+      axios
+        .patch(
+          `https://toctoc-api.herokuapp.com/flat/${match.params.id}`,
+          form,
+          config
+        )
+        //redirection
+        .then(() => {
+          history.push("/");
+        });
     } else {
       axios
         .post("https://toctoc-api.herokuapp.com/flat", form, config)
@@ -197,7 +204,12 @@ function AddFlat({ match }) {
         </form>
       </div>
       <div>
-        <Button variant="contained" color="secondary" onClick={handleClick}>
+        <Button
+          variant="contained"
+          className={classes.submit}
+          color="primary"
+          onClick={handleClick}
+        >
           Valider
         </Button>
       </div>

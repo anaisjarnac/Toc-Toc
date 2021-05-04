@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -8,6 +8,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     heigth: 250,
     borderRadius: "40px",
     boxShadow: "2px 4px 4px #FADDB6",
+    marginTop: theme.spacing(3),
   },
   media: {
     height: 0,
@@ -38,26 +40,43 @@ const useStyles = makeStyles((theme) => ({
 export default function FlatCard2(props) {
   const classes = useStyles();
 
+  const handleClick = async () => {
+    const accessToken = localStorage.getItem("userToken");
+    if (accessToken) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+
+      const userProfile = await axios.post(
+        `https://toctoc-api.herokuapp.com/users/favorite/${props._id}`,
+        {},
+        config
+      );
+    }
+  };
+
   return (
     <Card className={classes.root}>
       <CardHeader
-        // avatar={
-        //   <Avatar
-        //     src={props.avatar}
-        //     aria-label="recipe"
-        //     className={classes.avatar}
-        //   >
-        //     {props.avatar}
-        //   </Avatar>
-        // }
+        avatar={
+          <Avatar
+            src={props.avatar}
+            aria-label="recipe"
+            className={classes.avatar}
+          >
+            {props.avatar}
+          </Avatar>
+        }
         action={
           <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
+            <FavoriteIcon onClick={handleClick} />
           </IconButton>
         }
         title={props.title}
         subheader={props.city}
-        // subheader={props.district}
+        // subheader={district}
       />
       <CardMedia
         className={classes.media}
