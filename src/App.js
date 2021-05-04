@@ -11,6 +11,9 @@ import AddFlat from "./view/addflat/AddFlat";
 import Contact from "./view/Contact";
 import Profil from "./view/profil/components/Profil";
 import UnicFlatCard from "./view/UnicFlatCard/UnicFlatCard";
+import { ThemeProvider } from "@material-ui/styles";
+import theme from "./theme";
+import { CssBaseline } from "@material-ui/core";
 
 function App() {
   const [connectedUser, setConnectedUser] = useState({});
@@ -38,7 +41,9 @@ function App() {
   }, []);
 
   return (
+    <ThemeProvider theme={theme}>
     <UserContext.Provider value={{ connectedUser, setConnectedUser }}>
+      <CssBaseline />
       <Router>
         <Switch>
           <Route
@@ -134,6 +139,7 @@ function App() {
         </Switch>
       </Router>
     </UserContext.Provider>
+    </ThemeProvider>
   );
 }
 
