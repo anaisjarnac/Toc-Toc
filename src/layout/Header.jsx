@@ -67,7 +67,10 @@ function Header() {
           className={classes.toctoclogo}
         />
       </Link>
-      <h1 className={classes.title}>Toc Toc</h1>
+
+      <Button className={classes.title} to="/" component={Link}>
+        Toc Toc
+      </Button>
 
       <div>
         {Object.keys(connectedUser).length > 0 && (
