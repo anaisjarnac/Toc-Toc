@@ -1,7 +1,7 @@
 import React, { createRef } from 'react';
 import axios from 'axios';
 
-function ImagesUpload({ onUpload, images, form }) {
+function ImagesProfil({ onUpload }) {
   const publicKey = process.env.REACT_APP_PUBLIC_KEY;
   const authEndpoint = process.env.REACT_APP_AUTHENTICATION_ENDPOINT;
 
@@ -41,7 +41,6 @@ function ImagesUpload({ onUpload, images, form }) {
 
   return (
     <div>
-      <div>
         <button onClick={triggerUpload}>Mon Button</button>{' '}
         {/* custom element to change ! */}
         <input
@@ -50,12 +49,8 @@ function ImagesUpload({ onUpload, images, form }) {
           type="file"
           onChange={handleUpload}
         />
-      </div>
-      {form.images.map((image, index) => {
-        return <img src={image} alt="" key={index} />;
-      })}
     </div>
   );
 }
 
-export default ImagesUpload;
+export default ImagesProfil;
