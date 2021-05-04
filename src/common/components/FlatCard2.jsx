@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -7,11 +7,9 @@ import CardContent from "@material-ui/core/CardContent";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-<<<<<<< HEAD
 import axios from "axios";
-=======
 import { Link } from "react-router-dom";
->>>>>>> origin/dev
+import { Avatar } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,7 +61,6 @@ export default function FlatCard2(props) {
   return (
     <Card className={classes.root}>
       <CardHeader
-<<<<<<< HEAD
         avatar={
           <Avatar
             src={props.avatar}
@@ -73,17 +70,6 @@ export default function FlatCard2(props) {
             {props.avatar}
           </Avatar>
         }
-=======
-        // avatar={
-        //   <Avatar
-        //     src={props.avatar}
-        //     aria-label="recipe"
-        //     className={classes.avatar}
-        //   >
-        //     {props.avatar}
-        //   </Avatar> 
-        // }
->>>>>>> origin/dev
         action={
           <IconButton aria-label="add to favorites">
             <FavoriteIcon onClick={handleClick} />
