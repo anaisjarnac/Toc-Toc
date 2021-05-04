@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#F6C179",
     height: "3em",
     fontFamily: "'Comfortaa', cursive",
-    margin: "40px",
+    margin: "45px",
     "&:hover": {
       background: "#4E96AF",
     },

@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core";
 import FlatCard2 from "../../../common/components/FlatCard2";
 import HomeIcon from "@material-ui/icons/Home";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -23,6 +24,20 @@ const useStyles = makeStyles((theme) => ({
 
 function MesBiens(props) {
   const classes = useStyles();
+
+  // const accessToken = localStorage.getItem('userToken');
+  // if (accessToken) {
+  //   const config = {
+  //     headers: {
+  //       Authorization: `Bearer ${accessToken}`,
+  //     },
+  //   };
+
+  //   const userProfile = await axios.get(
+  //     'http://toctoc-api.herokuapp.com/users/flat/my-flat',
+  //     config
+  //   );
+
   return (
     <div>
       <div className={classes.title}>

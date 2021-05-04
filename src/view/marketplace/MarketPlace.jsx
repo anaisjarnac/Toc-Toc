@@ -54,7 +54,7 @@ function MarketPlace() {
       {/* </Grid>
       </Grid> */}
       <Container>
-        <div>
+        <div classeName={classes.flatCardList}>
           <FlatCardList cards={cards} />
         </div>
       </Container>

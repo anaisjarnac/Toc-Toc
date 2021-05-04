@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import FlatCard2 from "../../../common/components/FlatCard2";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import UserContext from "../../../context/user";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -23,6 +25,25 @@ const useStyles = makeStyles((theme) => ({
 
 function Favoris(props) {
   const classes = useStyles();
+
+  const [cards, setCards] = useState("");
+  const [favorites, setFavorites] = useState([]);
+  const { connectedUser } = useContext(UserContext);
+
+  useEffect(() => {
+    console.log(connectedUser);
+    if (Object.keys(connectedUser).length > 0) {
+      Promise.all(
+        connectedUser.favorites.map((item) => {
+          const req = axios.get(
+            `https://toctoc-api.herokuapp.com/flat/${item}`
+          );
+          return req;
+        })
+      ).then((response) => setFavorites(response));
+    }
+  }, []);
+
   return (
     <div>
       <div className={classes.title}>
@@ -32,13 +53,14 @@ function Favoris(props) {
         </h1>
       </div>
       <div className={classes.flat}>
-        <FlatCard2 />
-        <FlatCard2 />
-        <FlatCard2 />
-        <FlatCard2 />
+        {favorites.map((favorite) => (
+          <FlatCard2 {...favorite.data} />
+        ))}
       </div>
     </div>
   );
 }
 
 export default Favoris;
+
+// /flat/identifiantduflat
