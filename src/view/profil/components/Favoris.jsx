@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 function Favoris(props) {
   const classes = useStyles();
 
-  const [cards, setCards] = useState("");
   const [favorites, setFavorites] = useState([]);
   const { connectedUser } = useContext(UserContext);
 

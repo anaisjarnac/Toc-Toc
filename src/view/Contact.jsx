@@ -8,8 +8,15 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@material-ui/core";
 
 function Copyright() {
   return (
@@ -87,6 +94,13 @@ export default function SignUp() {
     console.log(userComment);
   };
 
+  const [open, setOpen] = React.useState();
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push("/");
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -157,6 +171,7 @@ export default function SignUp() {
           </Grid>
           <Button
             type="submit"
+            onClick={() => setOpen(true)}
             fullWidth
             variant="contained"
             color="primary"
@@ -164,6 +179,27 @@ export default function SignUp() {
           >
             Soumettre
           </Button>
+          <Dialog
+            open={open}
+            // onClose={() => setOpen(false)}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">
+              {"Confirmation d'envoi"}
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                Merci de nous avoir contacté. Nous reviendrons vers vous dans
+                des délais raisonnables mais plus rapide que la poste.
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClick} color="primary" autoFocus>
+                Close
+              </Button>
+            </DialogActions>
+          </Dialog>
         </form>
       </div>
       <Box mt={5}>

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import UserContext from "../../../context/user";
 import ImagesProfil from "./ImagesProfil";
+import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -25,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "50px",
     fontFamily: "Lato, sans-serif, Black italic",
   },
+  containerprofil: {
+    display: "flex",
+  },
 }));
 
 function Myprofil(props) {
@@ -32,12 +36,12 @@ function Myprofil(props) {
   const { connectedUser } = useContext(UserContext);
 
   const [profilImg, setProfilImg] = React.useState("");
-  
+
   const handleUploadImage = (imageUrl) => {
     setProfilImg(imageUrl);
-    console.log(profilImg)
-  }
-   
+    console.log(profilImg);
+  };
+
   return (
     <div className={classes.container}>
       <div className={classes.name}>
@@ -45,16 +49,13 @@ function Myprofil(props) {
         <h2>{connectedUser.lastName}</h2>
         <p>{connectedUser.email}</p>
       </div>
-      <div>
-        <Avatar
-        
-          className={classes.image}
-          alt="Ginette"
-          src={profilImg}
-        />
-      </div>
-      <div>
-        <ImagesProfil onUpload={handleUploadImage}/>
+      <div className={classes.containerprofil}>
+        <div>
+          <Avatar className={classes.image} alt="Ginette" src={profilImg} />
+        </div>
+        <div>
+          <ImagesProfil onUpload={handleUploadImage} />
+        </div>
       </div>
     </div>
   );
