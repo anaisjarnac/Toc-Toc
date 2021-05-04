@@ -48,7 +48,7 @@ export default function FlatCard2(props) {
         //     className={classes.avatar}
         //   >
         //     {props.avatar}
-        //   </Avatar>
+        //   </Avatar> 
         // }
         action={
           <IconButton aria-label="add to favorites">
