@@ -81,7 +81,7 @@ export default function FlatCard2(props) {
       />
 
       <CardMedia
-        to="/unic"
+        to={`/unic/${props._id}`}
         component={Link}
         className={classes.media}
         image={props.images}

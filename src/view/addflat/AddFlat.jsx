@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router";
-import { faFileExport } from "@fortawesome/free-solid-svg-icons";
+//import { fileExport } from "@fortawesome/free-solid-svg-icons";
 
 const useStyles = makeStyles((theme) => ({
   submit: {
@@ -47,7 +47,6 @@ function AddFlat({ match }) {
     description: "",
   });
 
-  //Check s'il y a une ID pour préremplir le form avec les data de l'API
   useEffect(() => {
     if (match?.params?.id) {
       axios
@@ -81,7 +80,6 @@ function AddFlat({ match }) {
           form,
           config
         )
-        //redirection
         .then(() => {
           history.push("/");
         });

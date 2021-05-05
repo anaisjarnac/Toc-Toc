@@ -1,87 +1,94 @@
-import React, { useContext, useEffect, useState } from "react";
-import CarousselCard from "./CarousselCard";
-import { makeStyles } from "@material-ui/core/styles";
-import HomeIcon from "@material-ui/icons/Home";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Avatar from "@material-ui/core/Avatar";
-import axios from "axios";
-import UserContext from "../../context/user";
+import React, { useContext, useEffect, useState } from 'react';
+import CarousselCard from './CarousselCard';
+import { makeStyles } from '@material-ui/core/styles';
+import HomeIcon from '@material-ui/icons/Home';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import Avatar from '@material-ui/core/Avatar';
+import axios from 'axios';
+import UserContext from '../../context/user';
+import { Button } from '@material-ui/core';
+import { AddLocation } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   flex: {
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
   },
   content: {
     fontFamily: "'Comfortaa', cursive",
-    textAlign: "justify",
+    textAlign: 'justify',
   },
   icon: {
-    fontSize: "35px",
-    color: "#8CB0BC",
+    fontSize: '35px',
+    color: '#8CB0BC',
   },
   root: {
-    display: "flex",
-    "& > *": {
+    display: 'flex',
+    '& > *': {
       margin: theme.spacing(1),
     },
   },
   proname: {
-    marginTop: "20px",
+    marginTop: '20px',
   },
 }));
 
 function UnicFlatCard(props) {
+  const { connectedUser, setConnectedUser } = useContext(UserContext);
+
   const classes = useStyles();
 
-  // const [unicflat, setUnicFlat] = useState([]);
-  // const { connectedUser } = useContext(UserContext);
+  const [unicflat, setUnicFlat] = useState([]);
 
-  // useEffect(() => {
-  //   console.log(connectedUser);
-  //   if (Object.keys(connectedUser).length > 0) {
-  //     Promise.all(
-  //       connectedUser.unicflat.map((item) => {
-  //         const req = axios.get(
-  //           `https://toctoc-api.herokuapp.com/flat/${item}`
-  //         );
-  //         return req;
-  //       })
-  //     ).then((response) => setUnicFlat(response));
-  //   }
-  // }, []);
-  // console.log(unicflat);
+  useEffect(() => {
+    axios
+      .get(`https://toctoc-api.herokuapp.com/flat/${props.match.params.id}`)
+      .then((response) => {
+        setUnicFlat(response.data);
+        console.log(response.data);
+      });
+  }, [props.match.params.id]);
+  console.log(unicflat);
+
+  const displayType = unicflat.type;
+  const displayFurnished = unicflat.furnished;
 
   return (
     <div className={classes.flex}>
-      <CarousselCard />
+      <CarousselCard images={unicflat.images} />
       <div className={classes.content}>
         <h1>
           <ListItemIcon>
             <HomeIcon className={classes.icon} />
           </ListItemIcon>
-          Loft avec terrasse
+          {unicflat.title}
         </h1>
         <div className={classes.root}>
+          {/* images proprio */}
           <Avatar alt="Proprietaire" src="/assets/img/men.jpeg" />
-          <p className={classes.proname}>Michou Dupond</p>
+          <p className={classes.proname}>Joe</p>
         </div>
-        <h2>Quartier Saint Michel</h2>
-        <p>
-          Ce magnifique loft refait à neuf en 2019, au design moderne et épurée,
-          <br />
-          est situé dans un quartier animé avec toutes les commodités
-          <br />à disposition. Spacieux, lumineux et fonctionnel, au charme
-          certain, <br />
-          vous vous y sentirez chez vous dés que vous passerez <br /> les portes
-          de cet appartement.
-        </p>
+        <h2>{unicflat.district}</h2>
+        <p>{unicflat.description}</p>
         <ul>
-          <li>Appartement</li>
-          <li>Non Meublé</li>
-          <li>92m2</li>
-          <li>1200 €</li>
+          {displayType === 'flat' && <li>Appartement</li>}
+          {displayType === 'house' && <li>Maison</li>}
+          {displayFurnished === 'furnished' && <li>Meublé</li>}
+          {displayFurnished === 'unfurnished' && <li>Non meublé</li>}
+
+          <li>{unicflat.area} m2</li>
+          <li>{unicflat.price} €</li>
         </ul>
+
+        {Object.keys(connectedUser).length > 0 && (
+          <Button className={classes.nous} to={'flat/' + unicflat._id} component={Link}>
+            <ListItemIcon>
+              <AddLocation />
+            </ListItemIcon>
+            edit
+          </Button>
+        )}
       </div>
     </div>
   );

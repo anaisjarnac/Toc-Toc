@@ -164,12 +164,7 @@ export default function BurgerMenu() {
               </Button>
             </li>
             <li>
-              <Button className={classes.nous} to="/flat/:id" component={Link}>
-                <ListItemIcon>
-                  <AddLocationIcon />
-                </ListItemIcon>
-                edit
-              </Button>
+
             </li>
             <li>
               <Button
@@ -220,14 +215,7 @@ export default function BurgerMenu() {
                 CONTACTEZ-NOUS
               </Button>
             </li>
-            <li>
-              <Button className={classes.contact} to="/unic" component={Link}>
-                <ListItemIcon>
-                  <ContactSupportIcon />
-                </ListItemIcon>
-                BIEN SUR PAGE UNIQUE
-              </Button>
-            </li>
+
           </ul>
         </div>
       </List>
