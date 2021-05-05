@@ -75,7 +75,7 @@ function Header() {
     <nav className={classes.sticky}>
       <Link to="/">
         <img
-          src="/assets/img/logoblue.png"
+          src="/assets/img/bite.jpeg"
           alt="logo"
           className={classes.toctoclogo}
         />
