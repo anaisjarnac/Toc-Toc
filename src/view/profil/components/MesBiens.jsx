@@ -31,15 +31,20 @@ function MesBiens(props) {
 
   useEffect(() => {
     console.log(connectedUser);
+
     if (Object.keys(connectedUser).length > 0) {
-      Promise.all(
-        connectedUser.flats.map((item) => {
-          const req = axios.get(
-            `https://toctoc-api.herokuapp.com/flat/my-flat`
-          );
-          return req;
-        })
-      ).then((response) => setFlats(response));
+      const accessToken = localStorage.getItem("userToken");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+      axios
+        .get(`https://toctoc-api.herokuapp.com/flat/my-flat`, config)
+        .then((response) => {
+          setFlats(response.data);
+          console.log(response.data);
+        });
     }
   }, []);
 
@@ -53,7 +58,7 @@ function MesBiens(props) {
       </div>
       <div className={classes.flat}>
         {flats.map((flat) => (
-          <FlatCard2 {...flat.data} />
+          <FlatCard2 {...flat} />
         ))}
       </div>
     </div>
