@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-function CarousselCard(props) {
+function CarousselCard({images}) {
   const classes = useStyles();
   const items = [
     {

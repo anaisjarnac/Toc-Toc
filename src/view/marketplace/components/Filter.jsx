@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bolder",
   },
   diff: {
-    color: "#3f51b5",
+    color: "black",
   },
   champ: {
     "& > *": {
@@ -39,9 +39,7 @@ const useStyles = makeStyles((theme) => ({
       background: "#4E96AF",
     },
   },
-  diff: {
-    color: "black",
-  },
+
 }));
 
 function Filter({ postForm }) {
@@ -52,7 +50,7 @@ function Filter({ postForm }) {
     price: [0, 4000],
     area: [0, 300],
     type: [],
-    furnished: "",
+    furnished: ""
   });
 
   const handleChange = (e) => {
@@ -108,15 +106,15 @@ function Filter({ postForm }) {
           </Grid>
 
           <div>
-            <p className={classes.title}>Equipement</p>
+            <p className={classes.title}>Meublé</p>
 
             <RadioGroup
               name="furnished"
               value={form.furnished}
               onChange={handleChange}
             >
-              <FormControlLabel value="Oui" control={<Radio />} label="Oui" />
-              <FormControlLabel value="Non" control={<Radio />} label="Non" />
+              <FormControlLabel value="furnished" control={<Radio />} label="Oui" />
+              <FormControlLabel value="unfurnished" control={<Radio />} label="Non" />
             </RadioGroup>
           </div>
 

@@ -129,10 +129,10 @@ function App() {
           />
           <Route
             exact
-            path="/unic"
-            render={() => (
+            path="/unic/:id"
+            render={(matchProps) => (
               <Main>
-                <UnicFlatCard />
+                <UnicFlatCard  {...matchProps}/>
               </Main>
             )}
           />
