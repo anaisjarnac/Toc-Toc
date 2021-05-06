@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "250%",
     color: "#FFF2D9",
     "&:hover": {
-      color: "#4E96AF",
+      color: "#FF865A",
     },
   },
 }));

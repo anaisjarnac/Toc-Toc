@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    margin: "50px",
     display: "flex",
   },
   filter: {
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "40px",
     boxShadow: "2px 4px 4px #FADDB6",
     width: "400px",
+    backgroundColor: "white",
   },
   title: {
     fontSize: "1.2em",
@@ -39,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
       background: "#4E96AF",
     },
   },
-
 }));
 
 function Filter({ postForm }) {
@@ -50,7 +51,7 @@ function Filter({ postForm }) {
     price: [0, 4000],
     area: [0, 300],
     type: [],
-    furnished: ""
+    furnished: "",
   });
 
   const handleChange = (e) => {
@@ -113,8 +114,16 @@ function Filter({ postForm }) {
               value={form.furnished}
               onChange={handleChange}
             >
-              <FormControlLabel value="furnished" control={<Radio />} label="Oui" />
-              <FormControlLabel value="unfurnished" control={<Radio />} label="Non" />
+              <FormControlLabel
+                value="furnished"
+                control={<Radio />}
+                label="Oui"
+              />
+              <FormControlLabel
+                value="unfurnished"
+                control={<Radio />}
+                label="Non"
+              />
             </RadioGroup>
           </div>
 

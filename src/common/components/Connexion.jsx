@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "#FADDB6",
+    backgroundColor: "#5E9EB3",
     color: "black",
   },
   form: {
@@ -55,10 +55,28 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "#FADDB6",
+    backgroundColor: "#5E9EB3",
     color: "black",
+    fontFamily: "'Comfortaa', cursive",
+    "&:hover": {
+      background: "#4CADB1",
+      fontSize: "15px",
+    },
   },
   theback: {
+    backgroundColor: "white",
+  },
+  iconlock: {
+    color: "white",
+  },
+  connexion: {
+    fontFamily: "'Comfortaa', cursive",
+    margin: "20px",
+  },
+  icon1: {
+    color: "#5E9EB3",
+  },
+  input: {
     backgroundColor: "white",
   },
 }));
@@ -109,13 +127,14 @@ export default function Connexion() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOpenOutlinedIcon />
+          <LockOpenOutlinedIcon className={classes.iconlock} />
         </Avatar>
-        <Typography component="h1" variant="h5">
-          Connexion
+        <Typography component="h1" variant="h5" className={classes.connexion}>
+          CONNEXION
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
+            className={classes.input}
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             variant="outlined"
@@ -130,12 +149,13 @@ export default function Connexion() {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <AccountCircleIcon />
+                  <AccountCircleIcon className={classes.icon1} />
                 </InputAdornment>
               ),
             }}
           />
           <TextField
+            className={classes.input}
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             variant="outlined"
@@ -150,7 +170,7 @@ export default function Connexion() {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <LockOpenOutlinedIcon />
+                  <LockOpenOutlinedIcon className={classes.icon1} />
                 </InputAdornment>
               ),
             }}
@@ -163,7 +183,7 @@ export default function Connexion() {
             className={classes.submit}
             onClick={handleClick}
           >
-            C'est parti
+            C'est parti !
           </Button>
           <Grid container>
             <Grid item xs>

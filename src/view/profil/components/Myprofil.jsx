@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-evenly",
     backgroundColor: "#F6C179",
-    margin: "100px 300px",
+    margin: "100px 500px",
     padding: "50px",
     borderRadius: "30px",
     marginBottom: "270px",
@@ -23,8 +23,9 @@ const useStyles = makeStyles((theme) => ({
 
   name: {
     textAlign: "center",
-    marginTop: "50px",
-    fontFamily: "Lato, sans-serif, Black italic",
+    margin: "30px",
+    fontFamily: "'Caveat', cursive",
+    fontSize: "15px",
   },
   containerprofil: {
     display: "flex",

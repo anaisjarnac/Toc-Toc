@@ -37,15 +37,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    border: "solid #C6DADA 2px",
+    border: "solid #F6C178 2px",
     borderRadius: "40px",
-    boxShadow: "5px 5px 5px #8CB0BC",
+    boxShadow: "5px 5px 5px #F6C178",
     padding: "40px",
-    backgroundColor: "#FADDB6",
+    backgroundColor: "#FFECC7",
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "#C6DADA",
+    backgroundColor: "#FF865A",
     color: "black",
   },
   form: {
@@ -54,10 +54,28 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "#C6DADA",
+    backgroundColor: "#FF865A",
     color: "black",
+    fontFamily: "'Comfortaa', cursive",
+    "&:hover": {
+      background: "#F6C178",
+      fontSize: "15px",
+    },
   },
   theback: {
+    backgroundColor: "white",
+  },
+  iconlock: {
+    color: "white",
+  },
+  connexion: {
+    fontFamily: "'Comfortaa', cursive",
+    margin: "20px",
+  },
+  icon1: {
+    color: "#FF865A",
+  },
+  input: {
     backgroundColor: "white",
   },
 }));
@@ -87,10 +105,10 @@ export default function Inscription() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <LockOutlinedIcon className={classes.iconlock} />
         </Avatar>
-        <Typography component="h1" variant="h5">
-          S'inscrire
+        <Typography component="h1" variant="h5" className={classes.connexion}>
+          S'INSCRIRE
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -138,7 +156,7 @@ export default function Inscription() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <AccountCircleIcon />
+                      <AccountCircleIcon className={classes.icon1} />
                     </InputAdornment>
                   ),
                 }}
@@ -160,7 +178,7 @@ export default function Inscription() {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <LockOpenOutlinedIcon />
+                      <LockOpenOutlinedIcon className={classes.icon1} />
                     </InputAdornment>
                   ),
                 }}

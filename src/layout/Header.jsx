@@ -74,15 +74,27 @@ function Header() {
     <nav className={classes.sticky}>
       <Link to="/">
         <img
-          src="/assets/img/bite.jpeg"
+          src="/assets/img/logoheader.png"
           alt="logo"
           className={classes.toctoclogo}
         />
       </Link>
 
+<<<<<<< HEAD
       <Link to="/" className={classes.title} style={{ textDecoration: "none" }}>
         Toc Toc
       </Link>
+=======
+      <div className={classes.title}>
+        <Link
+          to="/"
+          className={classes.title}
+          style={{ textDecoration: "none" }}
+        >
+          Toc Toc
+        </Link>
+      </div>
+>>>>>>> origin/dev
 
       {Object.keys(connectedUser).length > 0 && (
         <div className={classes.user}>

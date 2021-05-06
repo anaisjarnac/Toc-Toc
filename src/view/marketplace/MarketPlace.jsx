@@ -25,6 +25,15 @@ function MarketPlace() {
       headers: { Authorization: `Bearer ${token}` },
     };
     let criteria = form;
+    
+    if (criteria?.type?.length) {
+      criteria = {
+        ...criteria,
+        type: [criteria.type],
+      };
+    } else {
+      delete criteria.type
+    }
     if (criteria.price) {
       criteria = {
         ...criteria,
@@ -36,13 +45,12 @@ function MarketPlace() {
         ...criteria,
         area: { min: criteria.area[0], max: criteria.area[1] },
       };
-    } 
+    }
     axios
       .post("https://toctoc-api.herokuapp.com/flat/search", criteria, config)
       .then((res) => {
         setCards(res.data[0].data);
       });
-    
   };
 
   return (
