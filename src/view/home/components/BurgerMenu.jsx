@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     fontFamily: "'Comfortaa', cursive",
     textAlign: "center",
     fontWeight: "bold",
-    margin: "40px",
+    margin: "10px",
     "&:hover": {
       background: "#4E96AF",
     },
@@ -144,7 +144,7 @@ export default function BurgerMenu() {
                 <ListItemIcon>
                   <HomeIcon />
                 </ListItemIcon>
-                HOME
+                ACCUEIL
               </Button>
             </li>
             <li>
@@ -160,12 +160,10 @@ export default function BurgerMenu() {
                 <ListItemIcon>
                   <AddLocationIcon />
                 </ListItemIcon>
-                add
+                DÉPOSER UN BIEN
               </Button>
             </li>
-            <li>
-
-            </li>
+            <li></li>
             <li>
               <Button
                 className={classes.market}
@@ -215,7 +213,6 @@ export default function BurgerMenu() {
                 CONTACTEZ-NOUS
               </Button>
             </li>
-
           </ul>
         </div>
       </List>
