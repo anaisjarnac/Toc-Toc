@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     fontFamily: "'Comfortaa', cursive",
     textAlign: "center",
     fontWeight: "bold",
-    margin: "40px",
+    margin: "10px",
     "&:hover": {
       background: "#4E96AF",
     },

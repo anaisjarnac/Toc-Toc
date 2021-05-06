@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#FFF2D9",
     listStyle: "none",
   },
+  foot: {
+    height: "60px",
+  },
   button: {
     color: "white",
     backgroundColor: "#F6C179",

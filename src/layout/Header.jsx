@@ -11,41 +11,35 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     backgroundColor: "#FFF2D9",
     boxShadow: "0 3px 6px -1px #8CB0BC",
+    height: "80px",
   },
   button: {
     color: "white",
     backgroundColor: "#F6C179",
     height: "3em",
     fontFamily: "'Comfortaa', cursive",
-    margin: "45px",
+    marginTop: "18px",
     "&:hover": {
       background: "#4E96AF",
-    },
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
     },
   },
   burger: {
     color: "white",
     backgroundColor: "#F6C179",
-    height: "3em",
+    height: "2.5em",
     fontFamily: "'Comfortaa', cursive",
-    margin: "40px",
     "&:hover": {
       background: "#4E96AF",
     },
   },
-
   title: {
     fontFamily: "'Caveat', cursive",
     color: "#8CB0BC",
     fontSize: "60px",
     background: "none",
     border: "none",
-    marginRight: "300px",
     marginBottom: "10px",
   },
-
   toctoclogo: {
     width: "130px",
     height: "130px",
@@ -57,6 +51,11 @@ const useStyles = makeStyles((theme) => ({
     color: "#F6C179",
     fontFamily: "'Caveat', cursive",
     fontSize: "30px",
+    marginTop: "18px",
+    marginRight: "10px",
+  },
+  user: {
+    display: "flex",
   },
 }));
 
@@ -81,43 +80,35 @@ function Header() {
         />
       </Link>
 
-      <div className={classes.title}>
-        <Link
-          to="/"
-          className={classes.title}
-          style={{ textDecoration: "none" }}
-        >
-          Toc Toc
-        </Link>
-      </div>
+      <Link to="/" className={classes.title} style={{ textDecoration: "none" }}>
+        Toc Toc
+      </Link>
 
-      <div>
-        {Object.keys(connectedUser).length > 0 && (
-          <div className={classes.name}>
-            {connectedUser.firstName}
-            <Button
-              className={classes.button}
-              to="/connexion"
-              variant="contained"
-              color="primary"
-              onClick={handleClick}
-            >
-              Déconnexion
-            </Button>
-          </div>
-        )}
-        {Object.keys(connectedUser).length === 0 && (
+      {Object.keys(connectedUser).length > 0 && (
+        <div className={classes.user}>
+          <div className={classes.name}>{connectedUser.firstName}</div>
           <Button
             className={classes.button}
             to="/connexion"
-            component={Link}
             variant="contained"
             color="primary"
+            onClick={handleClick}
           >
-            Connexion
+            Déconnexion
           </Button>
-        )}
-      </div>
+        </div>
+      )}
+      {Object.keys(connectedUser).length === 0 && (
+        <Button
+          className={classes.button}
+          to="/connexion"
+          component={Link}
+          variant="contained"
+          color="primary"
+        >
+          Connexion
+        </Button>
+      )}
       <BurgerMenu />
     </nav>
   );

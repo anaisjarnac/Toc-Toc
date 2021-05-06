@@ -6,12 +6,17 @@ import AccueilProp from "./components/AccueilProp";
 import AccueilLoc from "./components/AccueilLoc";
 import Accroche from "./components/Accroche";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   carduser: {
     display: "flex",
     padding: "100px",
     marginRight: "200px",
     width: "100%",
+  },
+  rent: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
 }));
 
@@ -27,9 +32,9 @@ function Home(props) {
       </div>
 
       <div className={classes.carduser}>
-        <UserReviewList />
-        <AccueilLoc />
-        <AccueilProp />
+        <UserReviewList className={classes.review} />
+        <AccueilLoc className={classes.rent} />
+        <AccueilProp className={classes.lessor} />
       </div>
     </>
   );
