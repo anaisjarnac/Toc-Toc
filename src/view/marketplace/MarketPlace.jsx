@@ -5,7 +5,7 @@ import { Container } from "@material-ui/core";
 import FlatCardList from "../../common/components/FlatCardList";
 import axios from "axios";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
   },
@@ -25,14 +25,14 @@ function MarketPlace() {
       headers: { Authorization: `Bearer ${token}` },
     };
     let criteria = form;
-    
+
     if (criteria?.type?.length) {
       criteria = {
         ...criteria,
         type: [criteria.type],
       };
     } else {
-      delete criteria.type
+      delete criteria.type;
     }
     if (criteria.price) {
       criteria = {
@@ -55,13 +55,10 @@ function MarketPlace() {
 
   return (
     <div className={classes.root}>
-      {/* <Grid container>
-        <Grid item> */}
       <div>
         <Filter postForm={postForm} />
       </div>
-      {/* </Grid>
-      </Grid> */}
+
       <Container>
         <div classeName={classes.flatCardList}>
           <FlatCardList cards={cards} />
