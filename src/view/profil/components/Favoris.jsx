@@ -41,7 +41,7 @@ function Favoris(props) {
         })
       ).then((response) => setFavorites(response));
     }
-  }, []);
+  }, [connectedUser]);
 
   return (
     <div>
@@ -52,8 +52,8 @@ function Favoris(props) {
         </h1>
       </div>
       <div className={classes.flat}>
-        {favorites.map((favorite) => (
-          <FlatCard2 {...favorite.data} />
+        {favorites.map((favorite, index) => (
+          <FlatCard2 {...favorite.data} key={index} />
         ))}
       </div>
     </div>

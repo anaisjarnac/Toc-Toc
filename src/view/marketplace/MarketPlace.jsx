@@ -25,6 +25,15 @@ function MarketPlace() {
       headers: { Authorization: `Bearer ${token}` },
     };
     let criteria = form;
+    
+    if (criteria?.type?.length) {
+      criteria = {
+        ...criteria,
+        type: [criteria.type],
+      };
+    } else {
+      delete criteria.type
+    }
     if (criteria.price) {
       criteria = {
         ...criteria,
