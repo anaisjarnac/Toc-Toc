@@ -12,9 +12,10 @@ import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   submit: {
-    backgroundColor: "#F6C179",
+    backgroundColor: "#F69B79",
+    margin: "40px",
     "&:hover": {
-      background: "#4E96AF",
+      background: "#F6C179",
     },
   },
   root: {
@@ -23,13 +24,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   flatDescription: {
-    width: 600,
+    width: 400,
   },
 
   container: {
-    display: 'flex',
-    justifyContent: 'center',
-  }
+    margin: "30px",
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
+  },
+
+  title: {
+    fontFamily: "'Montserrat', sans-serif",
+    marginTop: "40px",
+    fontSize: "20px",
+  },
 }));
 
 function AddFlat({ match }) {
@@ -98,127 +107,143 @@ function AddFlat({ match }) {
 
   return (
     <div className={classes.container}>
-    <div>
       <div>
-        <h2>Titre de votre annonce</h2>
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            label="Titre de l'annonce"
-            variant="outlined"
-            name="title"
-            value={form.title}
-            onChange={handleChange}
-          />
-        </form>
-      </div>
-      <div>
-        <h2>Quel type de bien souhaitez-vous louer?</h2>
-        <RadioGroup value={form.type} onChange={handleChange} name="type">
-          <FormControlLabel
-            value="flat"
-            control={<Radio />}
-            label="Appartement"
-          />
-          <FormControlLabel value="house" control={<Radio />} label="Maison" />
-        </RadioGroup>
-      </div>
-      <div>
-        <h2>Quelle est la surface de votre bien?</h2>
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            label="Surface en m2"
-            variant="outlined"
-            name="area"
-            value={form.area}
-            onChange={handleChange}
-          />
-        </form>
-      </div>
-      <div>
-        <h2>Votre bien est-il meublé?</h2>
-
-        <RadioGroup
-          name="furnished"
-          value={form.furnished}
-          onChange={handleChange}
-        >
-          <FormControlLabel value="furnished" control={<Radio />} label="Oui" />
-          <FormControlLabel
-            value="unfurnished"
-            control={<Radio />}
-            label="Non"
-          />
-        </RadioGroup>
-      </div>
-      <div>
-        <h2>À quel prix souhaitez-vous louer votre bien?</h2>
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            label="Prix en €"
-            variant="outlined"
-            name="price"
-            value={form.price}
-            onChange={handleChange}
-          />
-        </form>
-      </div>
-      <div>
-        <h2>Ajouter une description de votre bien</h2>
-        <TextField
-          className={classes.flatDescription}
-          id="outlined-textarea"
-          label="Entrez votre description..."
-          placeholder="Placeholder"
-          multiline
-          rows={6}
-          variant="outlined"
-          name="description"
-          value={form.description}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <h2>Ajouter des photos</h2>
         <div>
-          <ImagesUpload
-            onUpload={handleUploadImage}
-            images={form.images}
-            form={form}
+          <h2 className={classes.title}>Titre de votre annonce :</h2>
+          <form className={classes.root} noValidate autoComplete="off">
+            <TextField
+              label="Titre de l'annonce"
+              variant="outlined"
+              name="title"
+              value={form.title}
+              onChange={handleChange}
+            />
+          </form>
+        </div>
+        <div>
+          <h2 className={classes.title}>
+            Quel type de bien souhaitez-vous louer ?
+          </h2>
+          <RadioGroup value={form.type} onChange={handleChange} name="type">
+            <FormControlLabel
+              value="flat"
+              control={<Radio />}
+              label="Appartement"
+            />
+            <FormControlLabel
+              value="house"
+              control={<Radio />}
+              label="Maison"
+            />
+          </RadioGroup>
+        </div>
+        <div>
+          <h2 className={classes.title}>
+            Quelle est la surface de votre bien ?
+          </h2>
+          <form className={classes.root} noValidate autoComplete="off">
+            <TextField
+              label="Surface en m2"
+              variant="outlined"
+              name="area"
+              value={form.area}
+              onChange={handleChange}
+            />
+          </form>
+        </div>
+        <div>
+          <h2 className={classes.title}>Votre bien est-il meublé ?</h2>
+
+          <RadioGroup
+            name="furnished"
+            value={form.furnished}
+            onChange={handleChange}
+          >
+            <FormControlLabel
+              value="furnished"
+              control={<Radio />}
+              label="Oui"
+            />
+            <FormControlLabel
+              value="unfurnished"
+              control={<Radio />}
+              label="Non"
+            />
+          </RadioGroup>
+        </div>
+        <div>
+          <h2 className={classes.title}>
+            À quel prix souhaitez-vous louer votre bien ?
+          </h2>
+          <form className={classes.root} noValidate autoComplete="off">
+            <TextField
+              label="Prix en €"
+              variant="outlined"
+              name="price"
+              value={form.price}
+              onChange={handleChange}
+            />
+          </form>
+        </div>
+        <div>
+          <h2 className={classes.title}>
+            Ajoutez une description de votre bien :
+          </h2>
+          <TextField
+            className={classes.flatDescription}
+            id="outlined-textarea"
+            label="Entrez votre description..."
+            placeholder=""
+            multiline
+            rows={6}
+            variant="outlined"
+            name="description"
+            value={form.description}
+            onChange={handleChange}
           />
         </div>
+        <div>
+          <h2 className={classes.title}>Ajoutez des photos :</h2>
+          <div>
+            <ImagesUpload
+              onUpload={handleUploadImage}
+              images={form.images}
+              form={form}
+            />
+          </div>
+        </div>
+        <div>
+          <h2 className={classes.title}>Où se situe votre bien ?</h2>
+          <form className={classes.root} noValidate autoComplete="off">
+            <TextField
+              label="Ville"
+              variant="outlined"
+              name="city"
+              value={form.city}
+              onChange={handleChange}
+            />
+          </form>
+          <form className={classes.root} noValidate autoComplete="off">
+            <TextField
+              label="Quartier"
+              variant="outlined"
+              name="district"
+              value={form.district}
+              onChange={handleChange}
+            />
+          </form>
+        </div>
+        <div>
+          <Button
+            variant="contained"
+            className={classes.submit}
+            color="primary"
+            onClick={handleClick}
+          >
+            Validez
+          </Button>
+        </div>
       </div>
-      <div>
-        <h2>Où se situe votre bien?</h2>
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            label="Ville"
-            variant="outlined"
-            name="city"
-            value={form.city}
-            onChange={handleChange}
-          />
-        </form>
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            label="Quartier"
-            variant="outlined"
-            name="district"
-            value={form.district}
-            onChange={handleChange}
-          />
-        </form>
-      </div>
-      <div>
-        <Button
-          variant="contained"
-          className={classes.submit}
-          color="primary"
-          onClick={handleClick}
-        >
-          Valider
-        </Button>
-      </div>
-    </div>
     </div>
   );
 }

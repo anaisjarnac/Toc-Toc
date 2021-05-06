@@ -36,13 +36,12 @@ function MarketPlace() {
         ...criteria,
         area: { min: criteria.area[0], max: criteria.area[1] },
       };
-    } 
+    }
     axios
       .post("https://toctoc-api.herokuapp.com/flat/search", criteria, config)
       .then((res) => {
         setCards(res.data[0].data);
       });
-    
   };
 
   return (

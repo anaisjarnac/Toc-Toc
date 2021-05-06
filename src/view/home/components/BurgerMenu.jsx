@@ -39,74 +39,115 @@ const useStyles = makeStyles({
   },
   accueil: {
     border: "none",
-    color: "black",
+    color: "#DB7070",
     padding: "20px",
     backgroundColor: "white",
     fontFamily: "'Comfortaa', cursive",
     fontSize: "15px",
     "&:hover": {
-      background: "#4E96AF",
+      fontSize: "17px",
     },
   },
   nous: {
     border: "none",
-    color: "black",
+    color: "#FF865A",
     padding: "20px",
     backgroundColor: "white",
     fontFamily: "'Comfortaa', cursive",
     fontSize: "15px",
     "&:hover": {
-      background: "#F6C179",
+      fontSize: "17px",
     },
   },
-  market: {
+
+  ajout: {
     border: "none",
-    color: "black",
+    color: "#F2B869",
     padding: "20px",
     backgroundColor: "white",
     fontFamily: "'Comfortaa', cursive",
     fontSize: "15px",
     "&:hover": {
-      background: "#C2ECFA",
+      fontSize: "17px",
+    },
+  },
+
+  market: {
+    border: "none",
+    color: "#DD9000",
+    padding: "20px",
+    backgroundColor: "white",
+    fontFamily: "'Comfortaa', cursive",
+    fontSize: "15px",
+    "&:hover": {
+      fontSize: "17px",
     },
   },
   connexion: {
     border: "none",
-    color: "black",
+    color: "#096565",
     padding: "20px",
     backgroundColor: "white",
     fontFamily: "'Comfortaa', cursive",
     fontSize: "15px",
     "&:hover": {
-      background: "#4E96AF",
+      fontSize: "17px",
     },
   },
   inscription: {
     border: "none",
-    color: "black",
+    color: "#5EB0B3",
     padding: "20px",
     backgroundColor: "white",
     fontFamily: "'Comfortaa', cursive",
     fontSize: "15px",
     "&:hover": {
-      background: "#F6C179",
+      fontSize: "17px",
     },
   },
   contact: {
     border: "none",
-    color: "black",
+    color: "#8CB0BC",
     padding: "20px",
     backgroundColor: "white",
     fontFamily: "'Comfortaa', cursive",
     fontSize: "15px",
     "&:hover": {
-      background: "#C2ECFA",
+      fontSize: "17px",
     },
   },
   menuicon: {
     color: "white",
     fontSize: "35px",
     marginLeft: "10px",
+  },
+  homeicon: {
+    color: "#DB7070",
+    fontSize: "30px",
+  },
+  circle: {
+    color: "#FF865A",
+    fontSize: "30px",
+  },
+  plus: {
+    color: "#F2B869",
+    fontSize: "30px",
+  },
+  loupe: {
+    color: "#DD9000",
+    fontSize: "30px",
+  },
+  cadenas: {
+    color: "#096565",
+    fontSize: "30px",
+  },
+  inscri: {
+    color: "#5EB0B3",
+    fontSize: "30px",
+  },
+  question: {
+    color: "#8CB0BC",
+    fontSize: "30px",
   },
 });
 
@@ -142,30 +183,28 @@ export default function BurgerMenu() {
             <li>
               <Button className={classes.accueil} to="/" component={Link}>
                 <ListItemIcon>
-                  <HomeIcon />
+                  <HomeIcon className={classes.homeicon} />
                 </ListItemIcon>
-                HOME
+                <strong>ACCUEIL</strong>
               </Button>
             </li>
             <li>
               <Button className={classes.nous} to="/profil" component={Link}>
                 <ListItemIcon>
-                  <AccountCircleIcon />
+                  <AccountCircleIcon className={classes.circle} />
                 </ListItemIcon>
-                MON PROFIL
+                <strong>MON PROFIL</strong>
               </Button>
             </li>
             <li>
-              <Button className={classes.nous} to="/flat" component={Link}>
+              <Button className={classes.ajout} to="/flat" component={Link}>
                 <ListItemIcon>
-                  <AddLocationIcon />
+                  <AddLocationIcon className={classes.plus} />
                 </ListItemIcon>
-                add
+                <strong>AJOUTER UN BIEN</strong>
               </Button>
             </li>
-            <li>
-
-            </li>
+            <li></li>
             <li>
               <Button
                 className={classes.market}
@@ -173,9 +212,9 @@ export default function BurgerMenu() {
                 component={Link}
               >
                 <ListItemIcon>
-                  <SearchIcon />
+                  <SearchIcon className={classes.loupe} />
                 </ListItemIcon>
-                MARKET-PLACE
+                <strong> MARKET-PLACE</strong>
               </Button>
             </li>
             <Divider />
@@ -186,9 +225,9 @@ export default function BurgerMenu() {
                 component={Link}
               >
                 <ListItemIcon>
-                  <LockOpenIcon />
+                  <LockOpenIcon className={classes.cadenas} />
                 </ListItemIcon>
-                CONNEXION
+                <strong>CONNEXION</strong>
               </Button>
             </li>
             <li>
@@ -198,9 +237,9 @@ export default function BurgerMenu() {
                 component={Link}
               >
                 <ListItemIcon>
-                  <AddBoxIcon />
+                  <AddBoxIcon className={classes.inscri} />
                 </ListItemIcon>
-                INSCRIPTION
+                <strong>INSCRIPTION</strong>
               </Button>
             </li>
             <li>
@@ -210,12 +249,11 @@ export default function BurgerMenu() {
                 component={Link}
               >
                 <ListItemIcon>
-                  <ContactSupportIcon />
+                  <ContactSupportIcon className={classes.question} />
                 </ListItemIcon>
-                CONTACTEZ-NOUS
+                <strong>CONTACTEZ-NOUS</strong>
               </Button>
             </li>
-
           </ul>
         </div>
       </List>

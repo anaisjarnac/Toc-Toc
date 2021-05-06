@@ -75,13 +75,13 @@ function Header() {
     <nav className={classes.sticky}>
       <Link to="/">
         <img
-          src="/assets/img/bite.jpeg"
+          src="/assets/img/logoheader.png"
           alt="logo"
           className={classes.toctoclogo}
         />
       </Link>
 
-      <button className={classes.title}>
+      <div className={classes.title}>
         <Link
           to="/"
           className={classes.title}
@@ -89,7 +89,7 @@ function Header() {
         >
           Toc Toc
         </Link>
-      </button>
+      </div>
 
       <div>
         {Object.keys(connectedUser).length > 0 && (
