@@ -41,15 +41,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    border: "solid #C6DADA 2px",
+    border: "solid #FFB6A0 2px",
     borderRadius: "40px",
-    boxShadow: "5px 5px 5px #8CB0BC",
+    boxShadow: "5px 5px 5px #FFB6A0",
     padding: "40px",
-    backgroundColor: "#FADDB6",
+    backgroundColor: "#FFECC7",
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: "#C6DADA",
+    backgroundColor: "#DA7070",
     color: "black",
   },
   form: {
@@ -58,14 +58,29 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "#C6DADA",
+    backgroundColor: "#DA7070",
     color: "black",
+    fontFamily: "'Comfortaa', cursive",
+    "&:hover": {
+      background: "#FFB6A0",
+      fontSize: "15px",
+    },
   },
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(0, 0, 2),
       width: "100%",
     },
+  },
+  iconlock: {
+    color: "white",
+  },
+  connexion: {
+    fontFamily: "'Comfortaa', cursive",
+    margin: "20px",
+  },
+  input: {
+    backgroundColor: "white",
   },
 }));
 
@@ -106,15 +121,16 @@ export default function SignUp() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <ContactSupportIcon />
+          <ContactSupportIcon className={classes.iconlock} />
         </Avatar>
-        <Typography component="h1" variant="h6">
+        <Typography component="h1" variant="h6" className={classes.connexion}>
           CONTACTEZ-NOUS
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
+                className={classes.input}
                 autoComplete="fname"
                 name={"firstName"}
                 variant="outlined"
@@ -129,6 +145,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -142,6 +159,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                className={classes.input}
                 variant="outlined"
                 required
                 fullWidth
@@ -155,6 +173,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                className={classes.input}
                 id="outlined-textarea"
                 required
                 label="Commentaires"

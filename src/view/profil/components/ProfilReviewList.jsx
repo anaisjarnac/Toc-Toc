@@ -6,12 +6,10 @@ const useStyles = makeStyles(() => ({
   container: {
     display: "flex",
     justifyContent: "space-evenly",
-    marginTop: "-150px",
-    marginRight: "300px",
-    marginLeft: "300px",
+    marginTop: "-10%",
   },
   user: {
-    padding: "30px",
+    width: "400px",
   },
 }));
 
@@ -22,7 +20,7 @@ function ProfilReviewList(props) {
       <div className={classes.user}>
         <UserReview
           name="Jean-Michel"
-          avatar="https://randomuser.me/api/portraits/men/66.jpg"
+          avatar="https://randomuser.me/api/portraits/men/85.jpg"
           profil="Propriétaire"
           review="Locataire parfait, très respectueux de mon bien. Les paiements ont tous été effectués à temps."
         />
@@ -30,7 +28,7 @@ function ProfilReviewList(props) {
       <div className={classes.user}>
         <UserReview
           name="Ana"
-          avatar="https://randomuser.me/api/portraits/women/66.jpg"
+          avatar="https://randomuser.me/api/portraits/women/44.jpg"
           profil="Locataire"
           review="Superbe maison en collocation durant mes années d'études, merci!"
         />
@@ -38,7 +36,7 @@ function ProfilReviewList(props) {
       <div className={classes.user}>
         <UserReview
           name="Roman"
-          avatar="https://randomuser.me/api/portraits/men/35.jpg"
+          avatar="https://randomuser.me/api/portraits/men/46.jpg"
           profil="Locataire"
           review="Trés gentil, la location s'est déroulée à merveille!"
         />
