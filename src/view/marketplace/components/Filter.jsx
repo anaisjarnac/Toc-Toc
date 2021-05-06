@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
   filter: {
     marginTop: "50px",
     padding: "50px 0 0 50px",
-    // backgroundColor: "#C6DADA",
     borderRadius: "40px",
     boxShadow: "2px 4px 4px #FADDB6",
     width: "400px",
@@ -35,8 +34,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 0, 2, 12),
     backgroundColor: "#F6C179",
+    display: "flex",
+    width: "100px",
+
     "&:hover": {
       background: "#4E96AF",
     },
@@ -79,7 +81,7 @@ function Filter({ postForm }) {
             <p className={classes.title}>Où se situe votre bien?</p>
             <form className={classes.root} noValidate autoComplete="off">
               <TextField
-                label="Ville"
+                label="Quartier"
                 variant="outlined"
                 name="location"
                 value={form.location}
