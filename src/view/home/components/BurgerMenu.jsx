@@ -185,11 +185,7 @@ export default function BurgerMenu() {
                 <ListItemIcon>
                   <HomeIcon className={classes.homeicon} />
                 </ListItemIcon>
-<<<<<<< HEAD
-                ACCUEIL
-=======
                 <strong>ACCUEIL</strong>
->>>>>>> origin/dev
               </Button>
             </li>
             <li>
@@ -205,11 +201,7 @@ export default function BurgerMenu() {
                 <ListItemIcon>
                   <AddLocationIcon className={classes.plus} />
                 </ListItemIcon>
-<<<<<<< HEAD
-                DÉPOSER UN BIEN
-=======
                 <strong>AJOUTER UN BIEN</strong>
->>>>>>> origin/dev
               </Button>
             </li>
             <li></li>
