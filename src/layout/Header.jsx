@@ -8,7 +8,7 @@ import UserContext from "../context/user";
 const useStyles = makeStyles((theme) => ({
   sticky: {
     display: "flex",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
     backgroundColor: "#FFF2D9",
     boxShadow: "0 3px 6px -1px #8CB0BC",
     height: "80px",
@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#F6C179",
     height: "3em",
     fontFamily: "'Comfortaa', cursive",
+    marginRight: "100px",
     marginTop: "18px",
     "&:hover": {
       background: "#4E96AF",
@@ -39,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     background: "none",
     border: "none",
     marginBottom: "10px",
+    marginRight: "auto",
   },
   toctoclogo: {
     width: "130px",

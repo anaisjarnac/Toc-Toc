@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import UserContext from "../../../context/user";
 import ImagesProfil from "./ImagesProfil";
-import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 
 const useStyles = makeStyles((theme) => ({
   container: {
