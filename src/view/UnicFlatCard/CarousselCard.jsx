@@ -21,21 +21,12 @@ const useStyles = makeStyles({
 
 function CarousselCard({images}) {
   const classes = useStyles();
-  const items = [
-    {
-      image: "/assets/img/flat-img/salon.jpg",
-    },
-    {
-      image: "/assets/img/flat-img/terrasse.jpg",
-    },
-    {
-      image: "/assets/img/flat-img/studio.jpg",
-    },
-  ];
+
+  console.log(images);
 
   return (
     <Carousel className={classes.random}>
-      {items.map((item, i) => (
+      {images?.map((item, i) => (
         <Item className={classes.item} key={i} item={item} />
       ))}
     </Carousel>
@@ -46,7 +37,7 @@ function Item(props) {
   const classes = useStyles();
   return (
     <Paper>
-      <img src={props.item.image} alt="logo" className={classes.img} />
+      <img src={props.item} alt="logo" className={classes.img} />
     </Paper>
   );
 }
