@@ -6,7 +6,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(1),
-      width: "80ch",
+      width: "500px",
+      height: "40px",
       backgroundColor: "white",
       borderRadius: "50px",
       border: "none",
@@ -17,27 +18,31 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  placeh: {
+    padding: "20px",
+  },
+
   container: {
     display: "flex",
     margin: "auto",
     padding: 20,
     borderRadius: "50px",
-    backgroundColor: "#FFF2D9",
-    width: "70%",
+    backgroundColor: "#8CB0BC",
+    width: "50%",
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
   },
 
   button: {
-    marginLeft: 15,
-    backgroundColor: "white",
+    fontSize: "0.8vw",
+    backgroundColor: "#D5E8EF",
     borderRadius: "50px",
     height: "40px",
-    marginTop: "15px",
+    margin: "10px",
     fontFamily: "'Comfortaa', cursive",
     "&:hover": {
-      background: "white",
+      background: "#A2E1E3",
     },
   },
 }));
@@ -48,10 +53,9 @@ function SearchBar(props) {
   return (
     <div className={classes.container}>
       <form className={classes.root} noValidate autoComplete="off">
-        <TextField
-          id="outlined-basic"
-          label="Entrez votre ville, votre quartier, votre code postal..."
-          variant="outlined"
+        <input
+          placeholder="Entrez votre ville, votre quartier, votre département..."
+          className={classes.placeh}
         />
       </form>
       <Button

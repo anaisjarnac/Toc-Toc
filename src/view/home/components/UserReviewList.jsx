@@ -13,21 +13,21 @@ function UserReviewList(props) {
   return (
     <div className={classes.listContainer}>
       <UserReview
-        name="Joe"
-        avatar="https://randomuser.me/api/portraits/men/36.jpg"
+        name="Charly"
+        avatar="https://randomuser.me/api/portraits/men/32.jpg"
         profil="Locataire"
-        review="Joe est super précotionneux! Il fera un parfait locataire."
+        review="Charly est super précotionneux! Il fera un parfait locataire."
       />
 
       <UserReview
-        name="Laura"
-        avatar="https://randomuser.me/api/portraits/women/85.jpg"
+        name="Anaïs"
+        avatar="https://randomuser.me/api/portraits/women/72.jpg"
         profil="Propriétaire"
         review="Son appart est super! En plus elle est super arrangeante."
       />
       <UserReview
-        name="Michel"
-        avatar="https://randomuser.me/api/portraits/men/33.jpg"
+        name="Antoine"
+        avatar="https://randomuser.me/api/portraits/men/28.jpg"
         profil="Locataire"
         review="Locataire au top, aucun soucis en 3 ans de location. Je recommande."
       />
