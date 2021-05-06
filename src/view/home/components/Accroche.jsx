@@ -3,11 +3,15 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   accroche: {
-    fontFamily: "'Comfortaa', cursive",
-    fontSize: "18px",
-    textAlign: "center",
-    marginBottom: "100px",
-    marginTop: "50px",
+    fontFamily: "'Roboto', sans-serif",
+    fontSize: "15px",
+    borderRadius: "50px",
+    boxShadow: "2px 4px 4px #FADDB6",
+    padding: "30px",
+    margin: "auto",
+    marginTop: "3.5em",
+    marginBottom: "3.5em",
+    width: "700px",
   },
 });
 
@@ -16,8 +20,10 @@ function Accroche(props) {
   return (
     <div className={classes.accroche}>
       <p>
-        "Trouve <em>le logement, le propriétaire et le locataire</em> de tes
-        rêves avec<strong> Toc Toc !" </strong>
+        "Grâce à<strong> Toc Toc, </strong>trouve facilement le logement,
+        <strong>la région Bordelaise</strong>, choisis ton quartier favoris et
+        nous nous occupons de te proposer des biens parfaitement adéquates,
+        appartenant à de supers propriétaires!"
       </p>
     </div>
   );
